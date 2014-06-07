@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <h1>Editing landmark</h1>
 
-    <%= render 'form' %>
+    <%= render 'form', landmark: @landmark %>
 
     <%= link_to 'Show', @landmark, class: 'btn btn-default' %> |
     <%= link_to 'Back', landmarks_path, class: 'btn btn-default' %>
