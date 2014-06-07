@@ -17,14 +17,13 @@
   	  	
   	<div class="off-canvas-wrap" data-offcanvas>
   		<div class="inner-wrap">
-  			
-  			<nav class="top-bar docs-bar hide-for-small">
+  			<nav class="top-bar hide-for-small">
   			
   			<nav class="tab-bar show-for-small-only fixed"> 
   				<section class="left-small"> 
   					<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a> 
   				</section> 
-  					<section class="middle tab-bar-section"> <h1 class="title">Stuffit Bananas</h1> </section> 
+  					<section class="middle tab-bar-section"> <h1 class="title"> <img src="images/cuturemap_logo.png" </h1> </section> 
   					
   			</nav> 
   			
@@ -41,7 +40,7 @@
 	  <div class="hide-for-small-only header">
 	  	<div class="top-bar-section">
 			
-			<div class="title-area left"><li class="name"><a href="#">CultureMap </a> </li> </div>
+			<div class="title-area left"><li class="name"><a href="#"> <img src="images/cuturemap_logo.png" </a> </li> </div>
 		  	
 		  	<ul class="right">
 		  		<li><a href="index.php">Home</a></li>
@@ -52,102 +51,24 @@
 	  	</div>
   	</div>
   	</nav>
-	
 
-
-
-
-
-   
     <div class="hero" id="hero-home">
-    	
-    	<div class="medium-11 large-7 columns small-centered">
-	    	<h1>What is a Stuffit Banana?</h1>
-	    	<h3>A delicious frozen treat. A banana stuffed with a flavorful filling, covered with chocolate and frozen.</h3>
-    	</div>
-    	
-    	<div id="monkey">
-    		<img src="images/monkey.png" 
-    		onmouseover="this.src='images/monkey_winking.png'" 
-    		onmouseout="this.src='images/monkey.png'" />
-    	</div>
     	
     </div><!--hero-->
     
     <div class="main-content">
     	<div class="section section-two clearfix">
-	    	<div class="row">
-	      	<div class="small-10 columns small-centered xlarge-12 columns ">
-		        <h1 class="title">Ingredients</h1>
-		        
-		        <!--
-		       	<p class="panel"> 
-		        	<strong class="show-for-small-only">This text is shown only on a small screen.</strong> 
-		        	<strong class="show-for-medium-up">This text is shown on medium screens and up.</strong> 
-		        	<strong class="show-for-medium-only">This text is shown only on a medium screen.</strong> 
-		        	<strong class="show-for-large-up">This text is shown on large screens and up.</strong> 
-		        	<strong class="show-for-large-only">This text is shown only on a large screen.</strong> 
-		        	<strong class="show-for-xlarge-up">This text is shown on xlarge screens and up.</strong> 
-		        	<strong class="show-for-xlarge-only">This text is shown only on an xlarge screen.</strong> 
-		        	<strong class="show-for-xxlarge-up">This text is shown on xxlarge screens and up.</strong> 
-		       	</p>-->
-		        
-		        <div class="small-12-centered medium-4 columns images">
-		        	<img src="images/banana.jpg" alt="sample images"/>
-		        	<h4 class="description">
-		        		Fresh Bananas
-		        	</h4>
-		        </div>
-		
-		        <div class="small-6-centered medium-4 columns images">
-		        	<img src="images/bar.png" alt="sample images"/>
-		        	<h4 class="description">
-		        		Organic Chocolate
-		        	</h4>
-		        </div>
-	
-		        <div class="small-6-centered medium-4 columns images">
-		        	<a href="products.php">
-		        		<img src="images/pow-qm.png" alt="sample images"/>
-		        	</a>
-		        	<h4 class="description">
-		        		<a href="products.php">Flavor Is Up To You!</a>
-		        	</h4>
-		        </div>
-		        
-	      	</div>
-	      	</div><!--row-->
+    		
+	    	<!--THIS IS WHERE THE list GOES -->
+	    	
 	    </div><!-- section two-->
-	    
-	    <div class="section section-three clearfix">
-	    	<div class="row">
-				<div class="small-10 columns small-centered ">
-					<h1 class="title">Huh? How does it work?</h1>
-		    		
-					<h3>It All Starts with a banana</h3>
-					<p>
-					Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-					Totam rem. Ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas t
-					</p>
-					
-					<div class="large-10 columns large-centered">
-						<img src="images/bananagram_qm.png" alt="this is how it works" />
-					</div>
-		    	</div>
-	    	</div>
-	    </div>
-    </div>
-    <!--include footer-->
-    
+	</div>
 
-	    
-    
     <footer>
-	    	<div class="small-10-centered medium-4 left columns">
-	    		&copy; Stuffit Bananas <?php echo date("Y") ?>
-	    	</div>
+    	<div class="small-10-centered medium-4 left columns">
+    		<div class="name"> <a href="#"> <img src="images/cuturemap_logo.png" </a> </div>
+    	</div>
     </footer>
-    
     
     <script src="js/vendor/jquery.js"></script>
   	<script src="js/foundation/foundation.js"></script>
@@ -156,17 +77,7 @@
     <script>
     $(document).foundation();
 	
-	var is_chrome = window.chrome;
-	var is_safari = (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1);
-	
-	if (is_chrome) {
-	    $('.hero').addClass('chrome');
-	}
-	else if (is_safari) {
-	    $('.hero').addClass('safari');
-	}
-	
-    function parallax() {
+	function parallax() {
     var ev = {
         scrollTop: document.body.scrollTop || document.documentElement.scrollTop
     };
@@ -176,14 +87,18 @@
 	
 	function render(ev) {
     var t = ev.scrollTop;
-    var y = Math.round(t * 1/6) - 0;
-    jQuery('#monkey').css('bottom', '0' - y + 'px');
+    var y = Math.round(t * 1/4) - 0;
+    var x = Math.round(t * -1/4) - 0;
+    var coords = '50% ' + x + 'px';
+    
+    jQuery('#hero-home').css('background-position', coords);
 	}
 	
 	jQuery(window).scroll(function () {
 		parallax();
 	});
-    </script>
+	
+	</script>
     
     
      <a class="exit-off-canvas"> </a> 

@@ -28,12 +28,9 @@ ul.right{
   background-color:transparent;
 }
 
-.bg-yellow{
-}
-
 .header{
-  position:relative;
-  z-index:100;
+position:relative;
+
 }
 
 .top-bar-section li:not(.has-form) a:not(.button),#main_nav{
@@ -46,6 +43,13 @@ ul.right{
 
 .top-bar{
   background-color:$blue;
+  position:fixed !important;
+  width:100%;
+  z-index:500;
+}
+
+.name,.title{
+  max-width:190px;
 }
 
 .left-off-canvas-menu{
@@ -72,13 +76,12 @@ ul.off-canvas-list li label{
 }
 
 #hero-home{
-  position:relative;
   padding:250px 0px 300px 0px;
+  background:url('images/holyoke.jpg') no-repeat top center fixed; 
 }
 
 .hero{
   padding:250px 0px 0px 0px;
-  margin-top:-155px;
 }
 
 footer{
@@ -99,8 +102,10 @@ footer{
 .section-two{
   background-color:#fff;
   min-height:500px;
-  z-index:6000;
   position:relative;
+  -webkit-box-shadow: 1px -13px 21px 0px rgba(0, 0, 0, 0.48);
+-moz-box-shadow:    1px -13px 21px 0px rgba(0, 0, 0, 0.48);
+box-shadow:         1px -13px 21px 0px rgba(0, 0, 0, 0.48);
 }
 .images .description{
     text-align:center;
