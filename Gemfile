@@ -11,8 +11,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
+
+gem 'bootstrap-sass'
 gem 'devise'
-gem "bootstrap-sass"
+gem 'geocoder'
+gem 'simple_form'
 
 group :development do
   gem 'better_errors'
