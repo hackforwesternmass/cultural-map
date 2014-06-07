@@ -23,3 +23,5 @@ group :development do
   gem 'quiet_assets'
   gem 'debugger'
 end
+
+gem 'foundation-rails', '~> 5.2.3.0'
