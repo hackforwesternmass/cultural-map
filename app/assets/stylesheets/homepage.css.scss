@@ -1,3 +1,142 @@
-// Place all the styles related to the Homepage controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+body{
+  font-family: 'Arvo', serif;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Arvo', serif;
+}
+ul.right{
+  list-style:none;
+  background-color:transparent;
+}
+
+.header{
+  position:relative;
+
+}
+
+.top-bar-section li:not(.has-form) a:not(.button),#main_nav{
+background-color:transparent;
+}
+
+.top-bar .toggle-topbar.menu-icon{
+
+}
+
+.top-bar{
+  background-color: #00AEEF;
+position:fixed !important;
+width:100%;
+z-index:500;
+}
+
+.name,.title{
+max-width:190px;
+}
+
+.left-off-canvas-menu{
+
+}
+ul.off-canvas-list li a{
+
+}
+ul.off-canvas-list li a:hover{
+color:#fff;
+}
+ul.off-canvas-list li label{
+background-color:none transparent !important;
+background:none repeat scroll 0 0 transparent;
+color:#fff;
+}
+
+.row{
+max-width:70em;
+}
+
+.row_full{
+max-width:100%;
+}
+
+#hero-home{
+padding:250px 0px 300px 0px;
+background:url('images/holyoke.jpg') no-repeat top center fixed;
+}
+
+.hero{
+padding:250px 0px 0px 0px;
+}
+
+footer{
+-moz-animation:colorchange 10s infinite alternate;
+-o-animation:colorchange 10s infinite alternate;
+-webkit-animation:colorchange 10s infinite alternate;
+}
+
+
+
+.section{
+padding:100px 0px 0px 0px;
+}
+.section:last-child{
+padding:100px 0px 100px 0px;
+}
+
+.section-two{
+background-color:#fff;
+min-height:500px;
+position:relative;
+-webkit-box-shadow: 1px -13px 21px 0px rgba(0, 0, 0, 0.48);
+-moz-box-shadow:    1px -13px 21px 0px rgba(0, 0, 0, 0.48);
+box-shadow:         1px -13px 21px 0px rgba(0, 0, 0, 0.48);
+}
+.images .description{
+text-align:center;
+margin-top:-100px;
+opacity:0;
+@extend %trans1;
+}
+.images:hover .description {
+margin-top:10px;
+opacity:1;
+}
+
+.section-two,.section-three{
+.title{text-align:center;}
+}
+
+ul{margin-left:0px;}
+
+.logo {
+width:200px;
+height:auto;
+}
+
+.main-section{
+position:relative;
+}
+
+footer{
+background-color:#494949;
+color:#fff;
+padding:50px 0px 50px 0px;
+}
+
+input{
+padding:10px;
+width:100%;
+border-radius:0px;
+border:0px transparent;
+outline:0px transparent;
+font-family: 'Arvo', serif;
+font-size:15pt;
+}
+
+@media only screen and (max-width: 768px) {
+
+}
+
+@media only screen and (max-width:400px) {
+
+}
