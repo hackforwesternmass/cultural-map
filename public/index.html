@@ -20,7 +20,68 @@
 		};
 
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
+		var locations = {
+		    location: {
+			id: "1",
+			name: "Sound Wave Mural",
+			type: "mural",
+			lat: "42.324153",
+			lon: "-72.631860",
+			url: "http://www.panoramio.com/photo/83768697",
+			address:"",
+			photographCredits:"Vanessa Oquendo"
+		    },
+		    location:{
+			id: "2",
+			name: "Water Music",
+			type: "sculpture",
+			lat: "42.320514",
+			lon: "-72.628392",
+			url: "http://www.panoramio.com/photo/82449888",
+			address:"Main Street",
+			photographCredits:"Vanessa Oquendo"
+		    },
+		    location:{
+			id: "3",
+			name: "First Born",
+			type: "sculpture",
+			lat: "42.320514",
+			lon: "-72.628392",
+			url: "http://www.panoramio.com/photo/83488651",
+			address:"",
+			photographCredits:"Vanessa Oquendo"
+		    },
+		    location:{
+			id: "4",
+			name: "",
+			type: "",
+			lat: "",
+			lon: "",
+			url: "",
+			address:"Main Street",
+			photographCredits:"Vanessa Oquendo"
+		    },
+		    location:{
+			id: "5",
+			name: "",
+			type: "",
+			lat: "",
+			lon: "",
+			url: "",
+			address:"",
+			photographCredits:"Vanessa Oquendo"
+		    },
+		    location:{
+			id: "6",
+			name: "",
+			type: "",
+			lat: "",
+			lon: "",
+			url: "",
+			address:"",
+			photographCredits:""
+		    }
+		};
 		// Add 5 markers to the map at random locations
 		var southWest = new google.maps.LatLng(-31.203405, 125.244141);
 		var northEast = new google.maps.LatLng(-25.363882, 131.044922);
@@ -45,8 +106,8 @@
 		}
 	    }
 
-    // The five markers show a secret message when clicked
-    // but that message is not within the marker's instance data
+	    // The five markers show a secret message when clicked
+	    // but that message is not within the marker's instance data
 	    function attachSecretMessage(marker, num) {
 		var message = ['This', 'is', 'the', 'secret', 'message'];
 		var infowindow = new google.maps.InfoWindow({
