@@ -1,0 +1,18 @@
+
+<script>
+    $(function(){
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        var lat = pos.coords.latitude;
+        var lng = pos.coords.longitude;
+        // $("#lat").text(lat);
+        // $("#lng").text(lng);
+      
+        alert(" Found your relative location: " + lat + "," + lng + " <br/> Loading local info...");
+
+      }, function(){
+        //
+
+      });
+  
+    });
+  </script>
