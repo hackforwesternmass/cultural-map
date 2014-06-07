@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var locListID='landmark-titles';
+var locListID='#landmarks-titles';
 function ListModel(){
     var self=this,
         locations=[];
@@ -15,12 +15,14 @@ function ListModel(){
     $.getJSON('landmarks.json').done(function(data) {
         locations = data;
         if (locations) {
-            $(locListID).html('<ul>');
+            $(locListID).append('<ul>');
             $.each(locations, function (k, v) {
-                $(locListID).append('<li>' + location[0].title + '</li>');
+                $(locListID).append('<li>' + v.description + '</li>');
             });
-            $(locListID).html('</ul>');
+            $(locListID).append('</ul>');
         }
     })
 
 }
+
+new ListModel();
