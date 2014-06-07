@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :landmarks
+  resource :homepage, only: [:index]
+  resources :land
   devise_for :users
-  root 'landmarks#index'
+  root 'homepage#index'
 end
