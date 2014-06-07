@@ -1,10 +1,10 @@
-<%= form_for(@landmark) do |f| %>
-  <% if @landmark.errors.any? %>
+<%= form_for(landmark) do |f| %>
+  <% if landmark.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@landmark.errors.count, "error") %> prohibited this landmark from being saved:</h2>
+      <h2><%= pluralize(landmark.errors.count, "error") %> prohibited this landmark from being saved:</h2>
 
       <ul>
-      <% @landmark.errors.full_messages.each do |message| %>
+      <% landmark.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
