@@ -1,4 +1,5 @@
 class LandmarksController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :set_landmark, only: [:show, :edit, :update, :destroy]
 
   # GET /landmarks
