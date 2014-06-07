@@ -21,4 +21,5 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # For Better Errors' advanced features
   gem 'quiet_assets'
+  gem 'debugger'w
 end
