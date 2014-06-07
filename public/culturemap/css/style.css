@@ -27,7 +27,7 @@ ul.right {
 .top-bar-section li:not(.has-form) a:not(.button), #main_nav {
   background-color: transparent; }
 
-.top-bar {
+.top-bar, .tab-bar {
   background-color: #00aeef;
   position: fixed !important;
   width: 100%;
@@ -35,6 +35,8 @@ ul.right {
 
 .name, .title {
   max-width: 190px; }
+  .name a, .title a {
+    background-color: transparent !important; }
 
 ul.off-canvas-list li a:hover {
   color: #fff; }
