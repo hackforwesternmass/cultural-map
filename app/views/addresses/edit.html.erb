@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Editing address</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form', address: @address %>
+
+    <%= link_to 'Show', @address, class: 'btn btn-default' %> |
+    <%= link_to 'Back', addresses_path, class: 'btn btn-default' %>
+  </div>
+</div>
