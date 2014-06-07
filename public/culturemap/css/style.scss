@@ -41,7 +41,7 @@ position:relative;
 
 }
 
-.top-bar{
+.top-bar, .tab-bar{
   background-color:$blue;
   position:fixed !important;
   width:100%;
@@ -50,6 +50,7 @@ position:relative;
 
 .name,.title{
   max-width:190px;
+  a {background-color:transparent !important;}
 }
 
 .left-off-canvas-menu{
