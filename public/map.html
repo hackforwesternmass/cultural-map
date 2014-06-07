@@ -82,7 +82,7 @@
 	    };
 	    function initialize() {
 		var mapOptions = {
-		    zoom: 4,
+		    zoom: 2,
 		    center: new google.maps.LatLng(-25.363882, 131.044922)
 		};
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -97,28 +97,11 @@
 		    attachSecretMessage(marker, v.name);
 		});
 		console.log(locations[1].lat + locations[1].lon);
-		var southWest = new google.maps.LatLng(locations[1].lat, locations[1].lon);
-		var northEast = new google.maps.LatLng(locations[5].lat, locations[5].lon);
+		var northEast = new google.maps.LatLng(locations[1].lat, locations[1].lon);
+		var southWest = new google.maps.LatLng(locations[5].lat, locations[5].lon);
 
 		var bounds = new google.maps.LatLngBounds(southWest, northEast);
 		map.fitBounds(bounds);
-
-		var lngSpan = northEast.lng() - southWest.lng();
-		var latSpan = northEast.lat() - southWest.lat();
-
-
-//		for (var i = 0; i < 5; i++) {
-//		    var position = new google.maps.LatLng(
-//			southWest.lat() + latSpan * Math.random(),
-//			southWest.lng() + lngSpan * Math.random());
-//		    var marker = new google.maps.Marker({
-//			position: position,
-//			map: map
-//		    });
-//
-//		    marker.setTitle((i + 1).toString());
-//		    attachSecretMessage(marker, i);
-//		}
 	    }
 
 	    // The five markers show a secret message when clicked
