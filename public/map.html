@@ -81,9 +81,7 @@
 		    zoom: 4,
 		    center: new google.maps.LatLng(-25.363882, 131.044922)
 		};
-
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
 		// the markers to the map from the json var
 		$.each(locations, function(k, v) {
 		    var position = new google.maps.LatLng(v.lat, v.lon);
@@ -91,11 +89,12 @@
 			position: position,
 			map: map
 		    });
-		    marker.setTitle((i + 1).toString());
-		    attachSecretMessage(marker, i);
+		    marker.setTitle(v.name);
+		    attachSecretMessage(marker, v.name);
 		});
-		var southWest = new google.maps.LatLng(-31.203405, 125.244141);
-		var northEast = new google.maps.LatLng(-25.363882, 131.044922);
+		console.log(locations.2.lat + locations.2.lon);
+		var southWest = new google.maps.LatLng(locations.2.lat , locations.2.lon);
+		var northEast = new google.maps.LatLng(locations.6.lat, locations.6.lon);
 
 		var bounds = new google.maps.LatLngBounds(southWest, northEast);
 		map.fitBounds(bounds);
@@ -120,18 +119,15 @@
 
 	    // The five markers show a secret message when clicked
 	    // but that message is not within the marker's instance data
-	    function attachSecretMessage(marker, num) {
+	    function attachSecretMessage(marker, name) {
 		var infowindow = new google.maps.InfoWindow({
-		    content: locations[num]
+		    content: name
 		});
-
 		google.maps.event.addListener(marker, 'click', function() {
 		    infowindow.open(marker.get('map'), marker);
 		});
 	    }
-
 	    google.maps.event.addDomListener(window, 'load', initialize);
-
 	</script>
     </head>
     <body>
