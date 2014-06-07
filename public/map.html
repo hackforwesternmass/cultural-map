@@ -12,6 +12,7 @@
 	    }
 	</style>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
 	<script>
 	    function initialize() {
 		var mapOptions = {
@@ -82,7 +83,10 @@
 			photographCredits: ""
 		    }
 		};
-		// Add 5 markers to the map at random locations
+		// the markers to the map from the json var
+		for(i=0;i<locations){
+		    
+		}
 		var southWest = new google.maps.LatLng(-31.203405, 125.244141);
 		var northEast = new google.maps.LatLng(-25.363882, 131.044922);
 
