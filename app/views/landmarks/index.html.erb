@@ -1,33 +1,41 @@
-<h1>Listing landmarks</h1>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Landmarks</h1>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Landmark type</th>
-      <th>Description</th>
-      <th>Short description</th>
-      <th>Address</th>
-      <th>Picture url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      <%= link_to 'New Landmark', new_landmark_path, class: 'btn btn-default' %>
+    </p>
 
-  <tbody>
-    <% @landmarks.each do |landmark| %>
-      <tr>
-        <td><%= landmark.landmark_type_id %></td>
-        <td><%= landmark.description %></td>
-        <td><%= landmark.short_description %></td>
-        <td><%= landmark.address_id %></td>
-        <td><%= landmark.picture_url %></td>
-        <td><%= link_to 'Show', landmark, class: 'btn btn-default' %></td>
-        <td><%= link_to 'Edit', edit_landmark_path(landmark), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Landmark type</th>
+          <th>Description</th>
+          <th>Short description</th>
+          <th>Address</th>
+          <th>Picture url</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<br>
-
-<%= link_to 'New Landmark', new_landmark_path, class: 'btn btn-default' %>
+      <tbody>
+        <% @landmarks.each do |landmark| %>
+          <tr>
+            <td><%= landmark.landmark_type_id %></td>
+            <td><%= landmark.description %></td>
+            <td><%= landmark.short_description %></td>
+            <td><%= landmark.address_id %></td>
+            <td><%= landmark.picture_url %></td>
+            <td><%= link_to 'Show', landmark, class: 'btn btn-default' %></td>
+            <td><%= link_to 'Edit', edit_landmark_path(landmark), class: 'btn btn-default' %></td>
+            <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

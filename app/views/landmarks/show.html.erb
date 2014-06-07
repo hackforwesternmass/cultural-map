@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Landmark type:</strong>
-  <%= @landmark.landmark_type_id %>
-</p>
+    <p>
+      <strong>Landmark type:</strong>
+      <%= @landmark.landmark_type_id %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @landmark.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @landmark.description %>
+    </p>
 
-<p>
-  <strong>Short description:</strong>
-  <%= @landmark.short_description %>
-</p>
+    <p>
+      <strong>Short description:</strong>
+      <%= @landmark.short_description %>
+    </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @landmark.address_id %>
-</p>
+    <p>
+      <strong>Address:</strong>
+      <%= @landmark.address_id %>
+    </p>
 
-<p>
-  <strong>Picture url:</strong>
-  <%= @landmark.picture_url %>
-</p>
+    <p>
+      <strong>Picture url:</strong>
+      <%= @landmark.picture_url %>
+    </p>
 
-<%= link_to 'Edit', edit_landmark_path(@landmark) %> |
-<%= link_to 'Back', landmarks_path %>
+    <%= link_to 'Edit', edit_landmark_path(@landmark), class: 'btn btn-default' %> |
+    <%= link_to 'Back', landmarks_path, class: 'btn btn-default' %>
+  </div>
+</div>
