@@ -11,6 +11,7 @@ json = ActiveSupport::JSON.decode(File.read('db/seeds/test_landmarks.json'))
 json.each do |a|
 
   a = a[1]
+  puts a 
   address = Address.where(:latitude => a['lat'].to_f, :longitude => a['lon'].to_f).first_or_create
 
   Landmark.create(:landmark_type_id => 1, :description => a['name'], 

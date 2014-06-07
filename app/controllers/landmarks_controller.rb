@@ -8,6 +8,21 @@ class LandmarksController < ApplicationController
     @landmarks = Landmark.all
   end
 
+  def list_landmarks
+    lat = params[:lat]
+    lon = params[:lon]
+    within = params[:within] ? params[:within] : 1
+    addresses = Address.near [lat, lon], within  #within a mile 
+    @landmarks = []
+    addresses.each do |a| 
+      if a && a.landmarks
+        a.landmarks.each do |l|
+          @landmarks << l
+        end
+      end
+    end
+  end
+
   # GET /landmarks/1
   # GET /landmarks/1.json
   def show

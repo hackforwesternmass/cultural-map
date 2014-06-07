@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :landmarks
   devise_for :users
   root 'homepage#index'
+
+  get "/list_landmarks",  to: "landmarks#list_landmarks"
 end
