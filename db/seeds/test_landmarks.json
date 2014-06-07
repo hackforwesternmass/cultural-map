@@ -6,7 +6,7 @@
     "lat": "42.324153",
     "lon": "-72.631860",
     "url": "http://www.panoramio.com/photo/83768697",
-    "address": "",
+    "address_id": "",
     "photographCredits": "Vanessa Oquendo"
   },
   "2": {
@@ -16,7 +16,7 @@
     "lat": "42.320514",
     "lon": "-72.628392",
     "url": "http://www.panoramio.com/photo/82449888",
-    "address": "Main Street",
+    "address_id": "1",
     "photographCredits": "Vanessa Oquendo"
   },
   "3": {
@@ -26,7 +26,7 @@
     "lat": "42.320514",
     "lon": "-72.628392",
     "url": "http://www.panoramio.com/photo/83488651",
-    "address": "",
+    "address_id": "",
     "photographCredits": "Vanessa Oquendo"
   },
   "4": {
@@ -36,7 +36,7 @@
     "lat": "42.320314",
     "lon": "-72.628644",
     "url": "http://www.panoramio.com/photo/83487396",
-    "address": "Main Street",
+    "address_id": "2",
     "photographCredits": "Vanessa Oquendo"
   },
   "5": {
@@ -46,7 +46,7 @@
     "lat": "42.316513",
     "lon": "-72.635634",
     "url": "http://historic-northampton.org/virtual_tours/architecture/q3forbes.html",
-    "address": "20 West St, Northampton, MA",
+    "address_id": "3",
     "photographCredits": ""
   },
   "6": {
@@ -56,7 +56,7 @@
     "lat": "42.319683",
     "lon": "-72.629865",
     "url": "http://historic-northampton.org/virtual_tours/architecture/q1firstnational.html",
-    "address": "1 King St, Northampton, MA",
+    "address_id": "4",
     "photographCredits": ""
   }
 }
