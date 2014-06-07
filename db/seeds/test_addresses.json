@@ -1,0 +1,38 @@
+{
+  "1": {
+    "id": "1",
+    "street_number": "",
+    "street": "Main Street",
+    "city": "Northampton",
+    "state": "MA",
+    "lat": "42.320514",
+    "lon": "-72.628392"
+  },
+  "2": {
+    "id": "2",
+    "street_number": "",
+    "street": "Main Street",
+    "city": "Northampton",
+    "state": "MA",
+    "lat": "42.320314",
+    "lon": "-72.628644"
+  },
+  "3": {
+    "id": "3",
+    "street_number": "20",
+    "street": "West Street",
+    "city": "Northampton",
+    "state": "MA",
+    "lat": "42.316513",
+    "lon": "-72.635634"
+  },
+  "4": {
+    "id": "4",
+    "street_number": "1",
+    "street": "King Street",
+    "city": "Northampton",
+    "state": "MA",
+    "lat": "42.319683",
+    "lon": "-72.629865"
+  }
+}
