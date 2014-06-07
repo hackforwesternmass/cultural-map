@@ -20,9 +20,9 @@
         <td><%= landmark.short_description %></td>
         <td><%= landmark.address_id %></td>
         <td><%= landmark.picture_url %></td>
-        <td><%= link_to 'Show', landmark %></td>
-        <td><%= link_to 'Edit', edit_landmark_path(landmark) %></td>
-        <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', landmark, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_landmark_path(landmark), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Landmark', new_landmark_path %>
+<%= link_to 'New Landmark', new_landmark_path, class: 'btn btn-default' %>
