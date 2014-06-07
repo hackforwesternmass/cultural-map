@@ -13,6 +13,10 @@
 	</style>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script src="js/jquery-2.1.1.min.js"></script>
+
+    </head>
+    <body>
+	<div id="map-canvas"></div>
 	<script>
 	    var locations = {
 		1: {
@@ -92,9 +96,9 @@
 		    marker.setTitle(v.name);
 		    attachSecretMessage(marker, v.name);
 		});
-		console.log(locations.2.lat + locations.2.lon);
-		var southWest = new google.maps.LatLng(locations.2.lat , locations.2.lon);
-		var northEast = new google.maps.LatLng(locations.6.lat, locations.6.lon);
+		console.log(locations[1].lat + locations[1].lon);
+		var southWest = new google.maps.LatLng(locations[1].lat, locations[1].lon);
+		var northEast = new google.maps.LatLng(locations[5].lat, locations[5].lon);
 
 		var bounds = new google.maps.LatLngBounds(southWest, northEast);
 		map.fitBounds(bounds);
@@ -129,9 +133,6 @@
 	    }
 	    google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
-    </head>
-    <body>
-	<div id="map-canvas"></div>
     </body>
 </html>
 
