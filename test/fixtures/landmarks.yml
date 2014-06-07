@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  landmark_type_id: 1
+  description: MyString
+  short_description: MyString
+  address_id: 1
+  picture_url: MyString
+
+two:
+  landmark_type_id: 1
+  description: MyString
+  short_description: MyString
+  address_id: 1
+  picture_url: MyString
