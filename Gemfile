@@ -8,11 +8,10 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-
-gem 'spring',        group: :development
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'foundation-rails', '~> 5.2.3.0'
 gem 'geocoder'
 gem 'simple_form'
 
@@ -20,7 +19,5 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # For Better Errors' advanced features
   gem 'quiet_assets'
-  gem 'debugger'
+  gem 'spring'
 end
-
-gem 'foundation-rails', '~> 5.2.3.0'
