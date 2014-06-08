@@ -1,4 +1,7 @@
 class Landmark < ActiveRecord::Base
-  belongs_to :address
-  
+  geocoded_by :address
+
+  def address
+    [street_number, street, city, state, 'USA'].compact.join(', ')
+  end
 end

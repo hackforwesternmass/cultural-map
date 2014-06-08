@@ -18,13 +18,38 @@
     </p>
 
     <p>
-      <strong>Address:</strong>
-      <%= @landmark.address_id %>
+      <strong>Picture url:</strong>
+      <%= @landmark.picture_url %>
     </p>
 
     <p>
-      <strong>Picture url:</strong>
-      <%= @landmark.picture_url %>
+      <strong>Street Number:</strong>
+      <%= landmark.street_number %>
+    </p>
+
+    <p>
+      <strong>Street:</strong>
+      <%= landmark.street %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= landmark.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= landmark.state %>
+    </p>
+
+    <p>
+      <strong>Latitude:</strong>
+      <%= landmark.latitude %>
+    </p>
+
+    <p>
+      <strong>Longituds:</strong>
+      <%= landmark.longitude %>
     </p>
 
     <%= link_to 'Edit', edit_landmark_path(@landmark), class: 'btn btn-default' %> |

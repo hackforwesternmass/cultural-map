@@ -6,19 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Import Addresses
-json = ActiveSupport::JSON.decode(File.read('db/seeds/test_addresses.json'))
-json.each do |a|
-  a = a[1]
-  Address.create(:id => a['id'],
-                 :street_number => a['street_number'],
-                 :street => a['street'],
-                 :city => a['city'],
-                 :state => a['state'],
-                 :latitude => a['lat'],
-                 :longitude => a['lon'])
-end
-
 # Import Landmarks
 json = ActiveSupport::JSON.decode(File.read('db/seeds/test_landmarks.json'))
 json.each do |a|
@@ -27,5 +14,11 @@ json.each do |a|
                   :description => a['name'],
                   :short_description => a['name'],
                   :address_id => a['address_id'] ,
-                  :picture_url => nil)
+                  :picture_url => nil,
+                  :street_number => a['street_number'],
+                  :street => a['street'],
+                  :city => a['city'],
+                  :state => a['state'],
+                  :latitude => a['lat'],
+                  :longitude => a['lon'])
 end

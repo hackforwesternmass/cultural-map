@@ -4,22 +4,16 @@ class LandmarksController < ApplicationController
 
   # GET /landmarks
   # GET /landmarks.json
+  # Accepts parameters:
+  # lat - Latitude of user
+  # lon - Longitude of user
+  # within - Maximum number of miles away from user
   def index
-    @landmarks = Landmark.all
-  end
-
-  def list_landmarks
-    lat = params[:lat]
-    lon = params[:lon]
-    within = params[:within] ? params[:within] : 1
-    addresses = Address.near [lat, lon], within  #within a mile 
-    @landmarks = []
-    addresses.each do |a| 
-      if a && a.landmarks
-        a.landmarks.each do |l|
-          @landmarks << l
-        end
-      end
+    if params[:lat] || params[:lon] || params[:within]
+      within     = params[:within] ? params[:within] : 1
+      @landmarks = Landmark.near([params[:lat], params[:lon]], within)
+    else
+      @landmarks = Landmark.all
     end
   end
 
@@ -85,6 +79,15 @@ class LandmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def landmark_params
-      params.require(:landmark).permit(:landmark_type_id, :description, :short_description, :address_id, :picture_url)
+      params.require(:landmark).permit(:landmark_type_id,
+                                       :description,
+                                       :short_description,
+                                       :picture_url,
+                                       :street_number,
+                                       :street,
+                                       :city,
+                                       :state,
+                                       :latitude,
+                                       :longitude)
     end
 end

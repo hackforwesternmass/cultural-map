@@ -6,8 +6,9 @@
     "lat": "42.324153",
     "lon": "-72.631860",
     "url": "http://www.panoramio.com/photo/83768697",
-    "address_id": "",
-    "photographCredits": "Vanessa Oquendo"
+    "photographCredits": "Vanessa Oquendo",
+    "city": "Northampton",
+    "state": "MA"
   },
   "2": {
     "id": "2",
@@ -16,8 +17,13 @@
     "lat": "42.320514",
     "lon": "-72.628392",
     "url": "http://www.panoramio.com/photo/82449888",
-    "address_id": "1",
-    "photographCredits": "Vanessa Oquendo"
+    "photographCredits": "Vanessa Oquendo",
+    "street_number": "",
+    "street": "Main Street",
+    "city": "Northampton",
+    "state": "MA",
+    "lat": "42.320514",
+    "lon": "-72.628392"
   },
   "3": {
     "id": "3",
@@ -26,8 +32,9 @@
     "lat": "42.320514",
     "lon": "-72.628392",
     "url": "http://www.panoramio.com/photo/83488651",
-    "address_id": "",
-    "photographCredits": "Vanessa Oquendo"
+    "photographCredits": "Vanessa Oquendo",
+    "city": "Northampton",
+    "state": "MA"
   },
   "4": {
     "id": "4",
@@ -36,8 +43,12 @@
     "lat": "42.320314",
     "lon": "-72.628644",
     "url": "http://www.panoramio.com/photo/83487396",
-    "address_id": "2",
-    "photographCredits": "Vanessa Oquendo"
+    "photographCredits": "Vanessa Oquendo",
+    "street": "Main Street",
+    "city": "Northampton",
+    "state": "MA",
+    "lat": "42.320314",
+    "lon": "-72.628644"
   },
   "5": {
     "id": "5",
@@ -46,8 +57,13 @@
     "lat": "42.316513",
     "lon": "-72.635634",
     "url": "http://historic-northampton.org/virtual_tours/architecture/q3forbes.html",
-    "address_id": "3",
-    "photographCredits": ""
+    "photographCredits": "",
+    "street_number": "20",
+    "street": "West Street",
+    "city": "Northampton",
+    "state": "MA",
+    "lat": "42.316513",
+    "lon": "-72.635634"
   },
   "6": {
     "id": "6",
@@ -57,6 +73,12 @@
     "lon": "-72.629865",
     "url": "http://historic-northampton.org/virtual_tours/architecture/q1firstnational.html",
     "address_id": "4",
-    "photographCredits": ""
+    "photographCredits": "",
+    "street_number": "1",
+    "street": "King Street",
+    "city": "Northampton",
+    "state": "MA",
+    "lat": "42.319683",
+    "lon": "-72.629865"
   }
 }
