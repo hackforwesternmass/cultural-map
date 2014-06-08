@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="small-12 columns">
     <p id="notice"><%= notice %></p>
 
     <p>
@@ -24,35 +24,34 @@
 
     <p>
       <strong>Street Number:</strong>
-      <%= landmark.street_number %>
+      <%= @landmark.street_number %>
     </p>
 
     <p>
       <strong>Street:</strong>
-      <%= landmark.street %>
+      <%= @landmark.street %>
     </p>
 
     <p>
       <strong>City:</strong>
-      <%= landmark.city %>
+      <%= @landmark.city %>
     </p>
 
     <p>
       <strong>State:</strong>
-      <%= landmark.state %>
+      <%= @landmark.state %>
     </p>
 
     <p>
       <strong>Latitude:</strong>
-      <%= landmark.latitude %>
+      <%= @landmark.latitude %>
     </p>
 
     <p>
       <strong>Longituds:</strong>
-      <%= landmark.longitude %>
+      <%= @landmark.longitude %>
     </p>
 
-    <%= link_to 'Edit', edit_landmark_path(@landmark), class: 'btn btn-default' %> |
-    <%= link_to 'Back', landmarks_path, class: 'btn btn-default' %>
+    <%= link_to 'Edit', edit_landmark_path(@landmark), class: 'button' %>
   </div>
 </div>

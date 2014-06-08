@@ -1,19 +1,19 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="small-12 columns">
     <h1>Landmarks</h1>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="small-12 columns">
     <p>
-      <%= link_to 'New Landmark', new_landmark_path, class: 'btn btn-default' %>
+      <%= link_to 'New Landmark', new_landmark_path, class: 'button' %>
     </p>
 
-    <table class="table">
+    <table>
       <thead>
         <tr>
-          <th>Landmark type</th>
+          <th>ID</th>
           <th>Description</th>
           <th>Short description</th>
           <th>Picture url</th>
@@ -22,7 +22,8 @@
           <th>City</th>
           <th>State</th>
           <th>Latitude</th>
-          <th>Longituds</th>
+          <th>Longitude</th>
+          <th>Landmark type</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -30,7 +31,7 @@
       <tbody>
         <% @landmarks.each do |landmark| %>
           <tr>
-            <td><%= landmark.landmark_type_id %></td>
+            <td><%= landmark.id %></td>
             <td><%= landmark.description %></td>
             <td><%= landmark.short_description %></td>
             <td><%= landmark.picture_url %></td>
@@ -40,9 +41,10 @@
             <td><%= landmark.state %></td>
             <td><%= landmark.latitude %></td>
             <td><%= landmark.longitude %></td>
-            <td><%= link_to 'Show', landmark, class: 'btn btn-default' %></td>
-            <td><%= link_to 'Edit', edit_landmark_path(landmark), class: 'btn btn-default' %></td>
-            <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+            <td><%= landmark.landmark_type_id %></td>
+            <td><%= link_to 'Show', landmark, class: 'tiny button' %></td>
+            <td><%= link_to 'Edit', edit_landmark_path(landmark), class: 'tiny button' %></td>
+            <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'alert tiny button' %></td>
           </tr>
         <% end %>
       </tbody>

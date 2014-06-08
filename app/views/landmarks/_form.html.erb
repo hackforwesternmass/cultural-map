@@ -11,50 +11,18 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.input :landmark_type_id %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label 'Description' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.text_area :description, rows: 7, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :short_description, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :picture_url %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :street_number %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :street %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :city %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :state %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :latitude %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :longitude %>
-  </div>
+  <%= f.input :landmark_type_id %>
+  <%= f.label 'Description' %>
+  <%= f.text_area :description, rows: 7 %>
+  <%= f.input :short_description %>
+  <%= f.input :picture_url %>
+  <%= f.input :street_number %>
+  <%= f.input :street %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
 
   <br />
-  <%= f.submit 'Create Landmark', class: 'btn btn-primary' %>
+  <%= f.submit 'Create Landmark', class: 'button' %>
 <% end %>
