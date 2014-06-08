@@ -13,7 +13,6 @@ json.each do |a|
   Landmark.create(:landmark_type_id => 1,
                   :description => a['name'],
                   :short_description => a['name'],
-                  :address_id => a['address_id'] ,
                   :picture_url => nil,
                   :street_number => a['street_number'],
                   :street => a['street'],
