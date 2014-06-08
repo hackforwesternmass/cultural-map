@@ -95,16 +95,15 @@
 		// the markers to the map from the json var
 		var marker;
 		$.getJSON('landmarks.json').done(function(data) {
-		    data;
 		    $.each(data, function(k, v) {
-			$('#debug').html($('#debug').text() + '<br>' + v.latitude + ', ' + v.longitude + '<br>' + v.description + ':' + v.url);
-			var position = new google.maps.LatLng(v.lat, v.lon);
+			$('#debug').html($('#debug').html() + '<br>' + v.latitude + '<br>' + v.longitude + '<br>' + v.description + '<br>' + v.url);
+			var position = new google.maps.LatLng(v.latitude, v.longitude);
 			var marker = new google.maps.Marker({
 			    position: position,
 			    map: map
 			});
-			marker.setTitle(v.name);
-			attachSecretMessage(marker, v.name);
+			marker.setTitle(v.description);
+			attachSecretMessage(marker, v.description);
 		    });
 		});
 		var northEast = new google.maps.LatLng(42.3358, -72.6113);
