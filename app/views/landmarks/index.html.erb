@@ -17,8 +17,7 @@
           <th>Description</th>
           <th>Short description</th>
           <th>Picture url</th>
-          <th>Street Number</th>
-          <th>Street</th>
+          <th>Address</th>
           <th>City</th>
           <th>State</th>
           <th>Latitude</th>
@@ -35,13 +34,12 @@
             <td><%= landmark.description %></td>
             <td><%= landmark.short_description %></td>
             <td><%= landmark.picture_url %></td>
-            <td><%= landmark.street_number %></td>
-            <td><%= landmark.street %></td>
+            <td><%= landmark.address %></td>
             <td><%= landmark.city %></td>
             <td><%= landmark.state %></td>
             <td><%= landmark.latitude %></td>
             <td><%= landmark.longitude %></td>
-            <td><%= landmark.landmark_type_id %></td>
+            <td><%= landmark.landmark_type %></td>
             <td><%= link_to 'Show', landmark, class: 'tiny button' %></td>
             <td><%= link_to 'Edit', edit_landmark_path(landmark), class: 'tiny button' %></td>
             <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'alert tiny button' %></td>

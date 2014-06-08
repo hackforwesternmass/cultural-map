@@ -11,13 +11,12 @@
     </div>
   <% end %>
 
-  <%= f.input :landmark_type_id %>
   <%= f.label 'Description' %>
   <%= f.text_area :description, rows: 7 %>
   <%= f.input :short_description %>
+  <%= f.input :landmark_type %>
   <%= f.input :picture_url %>
-  <%= f.input :street_number %>
-  <%= f.input :street %>
+  <%= f.input :address %>
   <%= f.input :city %>
   <%= f.input :state %>
   <%= f.input :latitude %>
