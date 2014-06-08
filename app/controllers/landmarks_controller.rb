@@ -13,7 +13,7 @@ class LandmarksController < ApplicationController
       within     = params[:within] ? params[:within] : 1
       @landmarks = Landmark.near([params[:lat], params[:lon]], within)
     else
-      @landmarks = Landmark.all
+      @landmarks = Landmark.order('id asc')
     end
   end
 
