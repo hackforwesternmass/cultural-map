@@ -12,7 +12,8 @@ var CM = {
   },
 
   getLandmarks: function(lat, lon, callback) {
-    $.getJSON("/landmarks.json?lat=" + lat + "&lon=" + lon).done(function(data) {
+    // $.getJSON("/landmarks.json?lat=" + lat + "&lon=" + lon).done(function(data) {
+   $.getJSON("/landmarks.json").done(function(data) {
       $.each(data, callback);
     });
   },
@@ -36,10 +37,26 @@ var CM = {
         function(k, v) {
           $('#debug').html($('#debug').html() + '<br>' + v.latitude + '<br>' + v.longitude + '<br>' + v.description + '<br>' + v.url);
           var position = new google.maps.LatLng(v.latitude, v.longitude);
+       
+          var marker_image = {
+              url: '/assets/marker.png',
+              size: new google.maps.Size(20, 32),
+              origin: new google.maps.Point(0,0),
+              anchor: new google.maps.Point(0, 32)
+          };
+
+           var shape = {
+            coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+            type: 'poly'
+          };
+
           var marker = new google.maps.Marker({
             position: position,
-            map: map
+            map: map, 
+            icon: marker_image,
+            shape: shape
           });
+
           marker.setTitle(v.description);
           CM.attachSecretMessage(marker, v.description);
         }
