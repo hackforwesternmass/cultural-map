@@ -12,7 +12,7 @@ var CM = {
   },
 
   getLandmarks: function(lat, lon, callback) {
-    $.getJSON("../landmarks.json?lat=" + lat + "&lon=" + lon).done(function(data) {
+    $.getJSON("/landmarks.json?lat=" + lat + "&lon=" + lon).done(function(data) {
       $.each(data, callback);
     });
   },
