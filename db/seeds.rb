@@ -7,17 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Import Landmarks
-json = ActiveSupport::JSON.decode(File.read('db/seeds/test_landmarks.json'))
+json = ActiveSupport::JSON.decode(File.read('db/seeds/landmarks.json'))
 json.each do |a|
   a = a[1]
-  Landmark.create(:landmark_type_id => 1,
-                  :description => a['name'],
+  Landmark.create(:description => a['name'],
                   :short_description => a['name'],
                   :picture_url => nil,
-                  :street_number => a['street_number'],
-                  :street => a['street'],
+                  :address => a['address'],
                   :city => a['city'],
                   :state => a['state'],
                   :latitude => a['lat'],
-                  :longitude => a['lon'])
+                  :longitude => a['lon'],
+                  :landmark_type => a['landmark_type'])
 end

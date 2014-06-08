@@ -11,30 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607235813) do
+ActiveRecord::Schema.define(version: 20140608131331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "landmark_types", force: true do |t|
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "landmarks", force: true do |t|
-    t.integer  "landmark_type_id"
     t.string   "description"
     t.string   "short_description"
     t.string   "picture_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "street"
-    t.integer  "street_number"
     t.string   "city"
     t.string   "state"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "address"
+    t.string   "landmark_type"
   end
 
   create_table "users", force: true do |t|
