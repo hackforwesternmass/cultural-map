@@ -26,8 +26,8 @@
   	
   	<body>
   	  	
-  	<div class="off-canvas-wrap" data-offcanvas>
-  		<div class="inner-wrap">
+<!--  	<div class="off-canvas-wrap" data-offcanvas>-->
+<!--  		<div class="inner-wrap">-->
   			<nav class="top-bar hide-for-small">
 			    <ul class="title-area left"><li class="name"><a href="#"> <img src="images/cuturemap_logo.png"> </a> </li> </ul>
 		  		<section class="top-bar-section">
@@ -49,37 +49,32 @@
 				  	</section>
 				</nav>
 	  			
-	  			<aside class="left-off-canvas-menu"> 
+<!--	  			<aside class="left-off-canvas-menu"> 
 	  				<ul class="off-canvas-list"> 
 	  					<li><a href="#">Events</a></li>
 				  		<li><a href="#">Architecture</a></li>
 				  		<li><a href="#">Art</a></li>
 				  		<li><a href="#">History</a></li>
 	  				</ul> 
-	  			</aside>
-  	
+	  			</aside>-->
+<!--  	
     <div class="hero" id="hero-home">
     	<div class="row text-center">
     		<h1>Welcome to Culture Map</h1>
     		<div class="arrow-down"></div>
     	</div>
-    </div><!--hero-->
-    
-    <div class="main-content">
-    	<div class="section section-two clearfix">
-	    <div id="map-canvas"></div>
-	</div><!-- section two-->
-    </div>
-
-    <footer>
+    </div>hero-->
+ 
+<div id="map-canvas" style="top:45px;z-index: 999999;height: 100%;width: 100%;"></div>
+<!--    <footer>
     	<div class="small-10-centered medium-4 left columns">
     		<div class="name"> <a href="#"> <img src="images/cuturemap_logo.png" alt="culturemap"/> </a> </div>
     	</div>
-    </footer>
+    </footer>-->
     
     <script src="js/vendor/jquery.js"></script>
-  	<script src="js/foundation/foundation.js"></script>
-  	<script src="./js/foundation/foundation.offcanvas.js"></script>
+<!--  	<script src="js/foundation/foundation.js"></script>
+  	<script src="./js/foundation/foundation.offcanvas.js"></script>-->
     	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script>
     $(document).foundation();
@@ -147,9 +142,9 @@
 	    }
 	    google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
-     <a class="exit-off-canvas"> </a> 
+<!--     <a class="exit-off-canvas"> </a> 
 	  		</div>
-	  	</div>
+	  	</div>-->
   </body>
   
 </html>
