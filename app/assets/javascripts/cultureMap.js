@@ -7,7 +7,6 @@ var CM = {
 
       callback(lat, lon);
     }, function() {
-      // Radius.View.show_location_error();
       alert("Please allow us to find your current location");
     });
   },
@@ -24,7 +23,8 @@ var CM = {
       var mapOptions = {
         zoom: 15,
         center: new google.maps.LatLng(lat, lon),
-        scrollwheel: false
+        scrollwheel: false,
+        fitBounds: true
       };
 
       var locations = {};
@@ -44,6 +44,8 @@ var CM = {
           CM.attachSecretMessage(marker, v.description);
         }
       );
+
+
     });
 
   },
