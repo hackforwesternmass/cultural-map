@@ -12,59 +12,17 @@
 
     <%= render 'shared/header' %>
 
-    <div class="row">
-      <div class="small-12 columns margin-top">
-        <h1>Landmarks</h1>
-        <p>
-          <%= link_to 'New Landmark', new_landmark_path, class: 'button' %>
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Description</th>
-              <th>Short description</th>
-              <th>Picture url</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Latitude</th>
-              <th>Longitude</th>
-              <th>Landmark type</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @landmarks.each do |landmark| %>
-              <tr>
-                <td><%= landmark.id %></td>
-                <td><%= landmark.description %></td>
-                <td><%= landmark.short_description %></td>
-                <td><%= landmark.picture_url %></td>
-                <td><%= landmark.address %></td>
-                <td><%= landmark.city %></td>
-                <td><%= landmark.state %></td>
-                <td><%= landmark.latitude %></td>
-                <td><%= landmark.longitude %></td>
-                <td><%= landmark.landmark_type %></td>
-                <td><%= link_to 'Show', landmark, class: 'tiny button' %></td>
-                <td><%= link_to 'Edit', edit_landmark_path(landmark), class: 'tiny button' %></td>
-                <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'alert tiny button' %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <% if current_user %>
+      <%= render 'shared/signed_in' %>
+    <% else %>
+      <%= render 'shared/visitor' %>
+    <% end %>
 
     <footer>
     <div class="small-10-centered medium-4 left columns">
       <div class="name"> <a href="#"> <img src="/assets/cuturemap_logo.png" alt="culturemap"/> </a> </div>
     </div>
     </footer>
-
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
