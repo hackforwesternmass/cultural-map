@@ -13,7 +13,7 @@ class LandmarksController < ApplicationController
       within     = params[:within] ? params[:within] : 1
       @landmarks = Landmark.near([params[:lat], params[:lon]], within)
     else
-      @landmarks = Landmark.all
+      @landmarks = Landmark.order('id asc')
     end
   end
 
@@ -79,15 +79,14 @@ class LandmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def landmark_params
-      params.require(:landmark).permit(:landmark_type_id,
-                                       :description,
+      params.require(:landmark).permit(:description,
                                        :short_description,
                                        :picture_url,
-                                       :street_number,
-                                       :street,
                                        :city,
                                        :state,
                                        :latitude,
-                                       :longitude)
+                                       :longitude,
+                                       :address,
+                                       :landmark_type)
     end
 end
