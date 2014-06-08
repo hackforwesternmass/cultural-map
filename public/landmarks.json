@@ -1,0 +1,55 @@
+[{
+	"id": 1,
+	"landmark_type_id": 1,
+	"description": "Sound Wave Mural",
+	"short_description": "Sound Wave Mural",
+	"picture_url": null,
+	"url": "http://cultural-map.herokuapp.com/landmarks/1.json",
+	"latitude": 37.09024,
+	"longitude": -95.712891
+    }, {
+	"id": 2,
+	"landmark_type_id": 1,
+	"description": "Water Music",
+	"short_description": "Water Music",
+	"picture_url": null,
+	"url": "http://cultural-map.herokuapp.com/landmarks/2.json",
+	"latitude": 37.09024,
+	"longitude": -95.712891
+    }, {
+	"id": 3,
+	"landmark_type_id": 1,
+	"description": "First Born",
+	"short_description": "First Born",
+	"picture_url": null,
+	"url": "http://cultural-map.herokuapp.com/landmarks/3.json",
+	"latitude": 37.09024,
+	"longitude": -95.712891
+    }, {
+	"id": 4,
+	"landmark_type_id": 1,
+	"description": "Bike Rail Trail Metal Sculpture",
+	"short_description": "Bike Rail Trail Metal Sculpture",
+	"picture_url": null,
+	"url": "http://cultural-map.herokuapp.com/landmarks/4.json",
+	"latitude": 37.09024,
+	"longitude": -95.712891
+    }, {
+	"id": 5,
+	"landmark_type_id": 1,
+	"description": "Forbes Library",
+	"short_description": "Forbes Library",
+	"picture_url": null,
+	"url": "http://cultural-map.herokuapp.com/landmarks/5.json",
+	"latitude": 37.09024,
+	"longitude": -95.712891
+    }, {
+	"id": 6,
+	"landmark_type_id": 1,
+	"description": "Silverscape building",
+	"short_description": "Silverscape building",
+	"picture_url": null,
+	"url": "http://cultural-map.herokuapp.com/landmarks/6.json",
+	"latitude": 37.09024,
+	"longitude": -95.712891
+    }]
