@@ -5,13 +5,14 @@
         <% @landmarks.each do |landmark| %>
           <div class="landmark-item">
             <section>
-              <h3><%= landmark.description %></h3>
-              <p><%= landmark.short_description %></p>
-              <span class="address"><%= landmark.address %>
-                <%= landmark.city %>
-                <%= landmark.state %>
-              </span>
-              <p> <%= landmark.landmark_type %></p>
+                <h3><%= landmark.description %></h3>
+                <p><%= landmark.short_description %></p>
+                <span class="address"><%= landmark.address %>
+                  <%= landmark.city %>
+                  <%= landmark.state %>
+                </span>
+                <p> <%= landmark.landmark_type %></p>
+              <div class="button small-btn">See more</div>
             </section>
           </div>
         <% end %>
