@@ -86,7 +86,7 @@ var CM = {
   viewList: function() {
     $('#map-canvas').hide();
 
-    // 
+    //
 
     $('#list-view').show();
   },

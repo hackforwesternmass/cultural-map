@@ -1,65 +1,51 @@
-  <div class="off-canvas-wrap" data-offcanvas>
-      <div class="inner-wrap">
-        <nav class="top-bar hide-for-small">
-          <ul class="title-area left"><li class="name"><a href="#"> <img src="/assets/cuturemap_logo.png"> </a> </li> </ul>
-          <section class="top-bar-section">
-            <ul class="right">
-              <li><a href="#" onclick="CM.viewList">List Attractions</a></li>
-              <li><a href="#" onclick="CM.viewMap">Map Attractions</a></li>
-            </ul>
-          </section>
-          </nav>
-          
-        <nav class="tab-bar show-for-small">
-          <section class="top-bar-section">
-            <a class="left-off-canvas-toggle menu-icon right"> <span> </span> </a>
-            <section class="left tab-bar-section">
-              <h1 class="title"> <img src="/assets/cuturemap_logo.png" alt="culturemap"/> </h1>
-            </section>
-            </section>
-        </nav>
-          
-          <aside class="left-off-canvas-menu"> 
-            <ul class="off-canvas-list"> 
-              <li><a href="#" onclick="CM.viewList">List Attractions</a></li>
-              <li><a href="#" onclick="CM.viewMap">Map Attractions</a></li>
-            </ul> 
-          </aside>
-    
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <!-- <nav class="top-bar hide-for-small">
+    <ul class="title-area left"><li class="name"><a href="#"> <img src="/assets/cuturemap_logo.png"> </a> </li> </ul>
+    <section class="top-bar-section">
+    <ul class="right">
+      <li><a href="#" onclick="CM.viewList">List Attractions</a></li>
+      <li><a href="#" onclick="CM.viewMap">Map Attractions</a></li>
+    </ul>
+    </section>
+    </nav> -->
+
+    <%= render 'shared/header' %>
+
     <div class="hero" id="hero-home">
       <div class="row text-center">
         <h1>Welcome to Culture Map</h1>
         <div class="arrow-down"></div>
       </div>
     </div><!--hero-->
-    
+
     <div class="main-content">
       <div class="section section-two clearfix">
-      <!-- zoom problem if put canvas here -->
-      <div id="map-canvas"></div>
-  </div><!-- section two-->
+        <!-- zoom problem if put canvas here -->
+        <div id="map-canvas"></div>
+      </div><!-- section two-->
     </div>
 
     <footer>
-      <div class="small-10-centered medium-4 left columns">
-        <div class="name"> <a href="#"> <img src="/assets/cuturemap_logo.png" alt="culturemap"/> </a> </div>
-      </div>
+    <div class="small-10-centered medium-4 left columns">
+      <div class="name"> <a href="#"> <img src="/assets/cuturemap_logo.png" alt="culturemap"/> </a> </div>
+    </div>
     </footer>
 
-  
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    
+
     <script>
-    $(document).foundation();
-  
-  jQuery(window).scroll(function () {
-    CM.parallax();
-  });
-  
-  </script>
-  <script>
+      $(document).foundation();
+
+      jQuery(window).scroll(function () {
+        CM.parallax();
+      });
+
+    </script>
+    <script>
       google.maps.event.addDomListener(window, 'load', CM.initialize);
-  </script>
-     <a class="exit-off-canvas"> </a> 
-        </div>
-      </div>
+    </script>
+    <a class="exit-off-canvas"> </a>
+  </div>
+</div>
