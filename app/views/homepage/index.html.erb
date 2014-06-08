@@ -1,60 +1,58 @@
-        
-    <div class="off-canvas-wrap" data-offcanvas>
+  <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
         <nav class="top-bar hide-for-small">
-        
-        <nav class="tab-bar show-for-small-only fixed"> 
-          <section class="left-small"> 
-            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a> 
-          </section> 
-            <section class="middle tab-bar-section"> <h1 class="title"> <%= image_tag "cuturemap_logo.png" %> </h1> </section> 
-            
-        </nav> 
-        
-        <aside class="left-off-canvas-menu"> 
-          <ul class="off-canvas-list"> 
-            <li></li> 
-            <li><a href="index.php">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul> 
-        </aside>
+          <ul class="title-area left"><li class="name"><a href="#"> <img src="/assets/cuturemap_logo.png"> </a> </li> </ul>
+          <section class="top-bar-section">
+            <ul class="right">
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Architecture</a></li>
+              <li><a href="#">Art</a></li>
+              <li><a href="#">History</a></li>
+            </ul>
+          </section>
+          </nav>
           
-    <div class="hide-for-small-only header">
-      <div class="top-bar-section">
-      
-      <div class="title-area left"><li class="name"><a href="#"> <%= image_tag "cuturemap_logo.png" %> </a> </li> </div>
-        
-        <ul class="right">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="products.php">Products</a></li>
-          <li><a href="contact.php">Contact</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
-    </div>
-    </nav>
-
+        <nav class="tab-bar show-for-small">
+          <section class="top-bar-section">
+            <a class="left-off-canvas-toggle menu-icon right"> <span> </span> </a>
+            <section class="left tab-bar-section">
+              <h1 class="title"> <img src="/assets/cuturemap_logo.png" alt="culturemap"/> </h1>
+            </section>
+            </section>
+        </nav>
+          
+          <aside class="left-off-canvas-menu"> 
+            <ul class="off-canvas-list"> 
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Architecture</a></li>
+              <li><a href="#">Art</a></li>
+              <li><a href="#">History</a></li>
+            </ul> 
+          </aside>
+    
     <div class="hero" id="hero-home">
-      
+      <div class="row text-center">
+        <h1>Welcome to Culture Map</h1>
+        <div class="arrow-down"></div>
+      </div>
     </div><!--hero-->
     
     <div class="main-content">
       <div class="section section-two clearfix">
-        
-        <!--THIS IS WHERE THE list GOES -->
-        
-      </div><!-- section two-->
-  </div>
+      <!-- zoom problem if put canvas here -->
+      <div id="map-canvas"></div>
+  </div><!-- section two-->
+    </div>
 
     <footer>
       <div class="small-10-centered medium-4 left columns">
-        <div class="name"> <a href="#"> <%= image_tag "cuturemap_logo.png" %></a> </div>
+        <div class="name"> <a href="#"> <img src="/assets/cuturemap_logo.png" alt="culturemap"/> </a> </div>
       </div>
     </footer>
-    
 
+  
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    
     <script>
     $(document).foundation();
   
@@ -80,12 +78,47 @@
   });
   
   </script>
-    
-    
+  <script>
+      function initialize() {
+    var mapOptions = {
+        zoom: 2,
+        center: new google.maps.LatLng(-25.363882, 131.044922)
+    };
+    var locations = {};
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    // the markers to the map from the json var
+    var marker;
+    $.getJSON("../landmarks.json").done(function(data) {
+        $.each(data, function(k, v) {
+      $('#debug').html($('#debug').html() + '<br>' + v.latitude + '<br>' + v.longitude + '<br>' + v.description + '<br>' + v.url);
+      var position = new google.maps.LatLng(v.latitude, v.longitude);
+      var marker = new google.maps.Marker({
+          position: position,
+          map: map
+      });
+      marker.setTitle(v.description);
+      attachSecretMessage(marker, v.description);
+        });
+    });
+    var northEast = new google.maps.LatLng(42.3358, -72.6113);
+    var southWest = new google.maps.LatLng(42.3110, -72.6644);
+
+    var bounds = new google.maps.LatLngBounds(southWest, northEast);
+    map.fitBounds(bounds);
+      }
+
+      // The five markers show a secret message when clicked
+      // but that message is not within the marker's instance data
+      function attachSecretMessage(marker, name) {
+    var infowindow = new google.maps.InfoWindow({
+        content: name
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(marker.get('map'), marker);
+    });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
      <a class="exit-off-canvas"> </a> 
         </div>
       </div>
-
-  
-
-    

@@ -116,7 +116,7 @@
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 		// the markers to the map from the json var
 		var marker;
-		$.getJSON("../landmarks.json").done(function(data) {
+	$.getJSON("../landmarks.json").done(function(data) {
 		    $.each(data, function(k, v) {
 			$('#debug').html($('#debug').html() + '<br>' + v.latitude + '<br>' + v.longitude + '<br>' + v.description + '<br>' + v.url);
 			var position = new google.maps.LatLng(v.latitude, v.longitude);
