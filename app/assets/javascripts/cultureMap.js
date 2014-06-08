@@ -18,7 +18,7 @@ var CM = {
     var mapOptions = {
       zoom: 15,
       center: new google.maps.LatLng(lat, lon),
-      // scrollwheel: false
+      scrollwheel: false
     };
 
     var locations = {};
