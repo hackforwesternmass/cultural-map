@@ -13,7 +13,6 @@
  *= require_tree .
  */
 
-
 .top-bar-section ul li {
   background-color: #00AEEF;
 }
@@ -22,4 +21,7 @@
   height: 600px;
 }
 
-
+// Fixes the conflict between Google Maps controls and Foundation
+#map-canvas img{
+  max-width: none;
+}
