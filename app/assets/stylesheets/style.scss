@@ -59,10 +59,6 @@ ul.right{
   z-index:500;
 }
 
-.top-bar .title-area{
-  margin-left:10px;
-}
-
 .name,.title{
   max-width:190px;
   a {background-color:transparent !important;}
@@ -147,7 +143,33 @@ ul{margin-left:0px;}
 }
 
 .main-section{
+  padding-bottom: 100px;
   position:relative;
+  h1 {
+    padding-left: 20px;
+  }
+  .landmark-item {
+    @extend %trans1;
+    padding: 20px 20px;
+    border-bottom: 1px solid #ededed;
+
+    p,h1,h2,h3,h4,h5 {
+      margin-bottom: 0px;
+    }
+
+    &:last-child {
+      border-bottom: 0px transparent;
+    }
+
+    &:hover {
+      padding: 25px 20px;
+    }
+
+    .address {
+      font-style: italic;
+      font-weight: lighter;
+    }
+  }
 }
 
 footer{
@@ -166,8 +188,12 @@ input{
   font-size:15pt;
 }
 
+
 .margin-top {
-  margin-top: 100px;
+  margin-top: 50px;
+}
+
+.landmark-item {
 }
 
 #hero-home {
