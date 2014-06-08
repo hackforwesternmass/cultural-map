@@ -1,5 +1,17 @@
 var CM = {
 
+  getLocation: function(callback) {
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      var lat = pos.coords.latitude;
+      var lon = pos.coords.longitude;
+
+      callback(lat, lon);
+    }, function() {
+      // Radius.View.show_location_error();
+      alert("Please allow us to find your current location");
+    });
+  },
+
   getLandmarks: function(lat, lon, callback) {
     $.getJSON("../landmarks.json?lat=" + lat + "&lon=" + lon).done(function(data) {
       $.each(data, callback);
@@ -8,41 +20,31 @@ var CM = {
 
   initialize: function() {
 
-    // get user location here 
+    CM.getLocation(function(lat, lon) {
+      var mapOptions = {
+        zoom: 15,
+        center: new google.maps.LatLng(lat, lon),
+        scrollwheel: false
+      };
 
-    // "latitude":42.320514,"longitude":-72.628392
+      var locations = {};
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      // the markers to the map from the json var
+      var marker;
 
-    var lat = 42.320514;
-    var lon = -72.628392; 
-
-    var mapOptions = {
-      zoom: 15,
-      center: new google.maps.LatLng(lat, lon),
-      scrollwheel: false
-    };
-
-    var locations = {};
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    // the markers to the map from the json var
-    var marker;
-
-    CM.getLandmarks(lat, lon,
-      function(k, v) {
-        $('#debug').html($('#debug').html() + '<br>' + v.latitude + '<br>' + v.longitude + '<br>' + v.description + '<br>' + v.url);
-        var position = new google.maps.LatLng(v.latitude, v.longitude);
-        var marker = new google.maps.Marker({
-          position: position,
-          map: map
-        });
-        marker.setTitle(v.description);
-        CM.attachSecretMessage(marker, v.description);
-      }
-    );
-
-    // var northEast = new google.maps.LatLng(lat + .10 , lon - .10);
-    // var southWest = new google.maps.LatLng(lat + .10, lon - .10 );
-    // var bounds = new google.maps.LatLngBounds(southWest, northEast);
-    // map.fitBounds(bounds);
+      CM.getLandmarks(lat, lon,
+        function(k, v) {
+          $('#debug').html($('#debug').html() + '<br>' + v.latitude + '<br>' + v.longitude + '<br>' + v.description + '<br>' + v.url);
+          var position = new google.maps.LatLng(v.latitude, v.longitude);
+          var marker = new google.maps.Marker({
+            position: position,
+            map: map
+          });
+          marker.setTitle(v.description);
+          CM.attachSecretMessage(marker, v.description);
+        }
+      );
+    });
 
   },
 
