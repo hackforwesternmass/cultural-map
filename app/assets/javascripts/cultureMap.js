@@ -1,16 +1,33 @@
 var CM = {
 
+  getLandmarks: function(lat, lon, callback) {
+    $.getJSON("../landmarks.json?lat=" + lat + "&lon=" + lon).done(function(data) {
+      $.each(data, callback);
+    });
+  },
+
   initialize: function() {
+
+    // get user location here 
+
+    // "latitude":42.320514,"longitude":-72.628392
+
+    var lat = 42.320514;
+    var lon = -72.628392; 
+
     var mapOptions = {
-      zoom: 2,
-      center: new google.maps.LatLng(-25.363882, 131.044922)
+      zoom: 15,
+      center: new google.maps.LatLng(lat, lon),
+      // scrollwheel: false
     };
+
     var locations = {};
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     // the markers to the map from the json var
     var marker;
-    $.getJSON("../landmarks.json").done(function(data) {
-      $.each(data, function(k, v) {
+
+    CM.getLandmarks(lat, lon,
+      function(k, v) {
         $('#debug').html($('#debug').html() + '<br>' + v.latitude + '<br>' + v.longitude + '<br>' + v.description + '<br>' + v.url);
         var position = new google.maps.LatLng(v.latitude, v.longitude);
         var marker = new google.maps.Marker({
@@ -19,13 +36,14 @@ var CM = {
         });
         marker.setTitle(v.description);
         CM.attachSecretMessage(marker, v.description);
-      });
-    });
-    var northEast = new google.maps.LatLng(42.3358, -72.6113);
-    var southWest = new google.maps.LatLng(42.3110, -72.6644);
+      }
+    );
 
-    var bounds = new google.maps.LatLngBounds(southWest, northEast);
-    map.fitBounds(bounds);
+    // var northEast = new google.maps.LatLng(lat + .10 , lon - .10);
+    // var southWest = new google.maps.LatLng(lat + .10, lon - .10 );
+    // var bounds = new google.maps.LatLngBounds(southWest, northEast);
+    // map.fitBounds(bounds);
+
   },
 
   // The five markers show a secret message when clicked
@@ -54,5 +72,18 @@ var CM = {
     var coords = '50% ' + x + 'px';
 
     jQuery('#hero-home').css('background-position', coords);
-  }
+  },
+
+  viewMap: function() {
+    $('#list-view').hide();
+    $('#map-canvas').show();
+  },
+
+  viewList: function() {
+    $('#map-canvas').hide();
+
+    // 
+
+    $('#list-view').show();
+  },
 };
