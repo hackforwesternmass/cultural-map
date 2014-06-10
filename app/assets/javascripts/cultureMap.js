@@ -19,7 +19,7 @@ var CM = {
 
   initialize: function() {
 
-    CM.getLocation(function(lat, lon) {
+    this.getLocation(function(lat, lon) {
       var mapOptions = {
         zoom: 15,
         center: new google.maps.LatLng(lat, lon),
@@ -82,7 +82,7 @@ var CM = {
       scrollTop: document.body.scrollTop || document.documentElement.scrollTop
     };
     ev.ratioScrolled = ev.scrollTop / (document.body.scrollHeight - document.documentElement.clientHeight);
-    CM.render(ev);
+    this.render(ev);
   },
 
   render: function(ev) {
