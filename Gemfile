@@ -15,6 +15,8 @@ gem 'foundation-rails', '~> 5.2.3.0'
 gem 'geocoder'
 gem 'simple_form'
 
+gem 'ng-rails-csrf'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # For Better Errors' advanced features

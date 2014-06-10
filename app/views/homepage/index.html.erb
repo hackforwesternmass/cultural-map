@@ -20,10 +20,11 @@
     </div><!--hero-->
 
     <div class="main-content">
-      <div class="section section-two clearfix">
-        <!-- zoom problem if put canvas here -->
-        <div id="map-canvas"></div>
-      </div><!-- section two-->
+      <div class="section section-two clearfix" ng-view>
+        
+
+      </div>
+      <!-- section two-->
     </div>
 
     <footer>
@@ -44,7 +45,7 @@
 
     </script>
     <script>
-      google.maps.event.addDomListener(window, 'load', CM.initialize);
+      // google.maps.event.addDomListener(window, 'load', initialize);
     </script>
     <a class="exit-off-canvas"> </a>
   </div>

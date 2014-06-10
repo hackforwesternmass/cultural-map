@@ -14,4 +14,16 @@
 //= require jquery_ujs
 //= require modernizr
 //= require foundation
-//= require_tree .
+
+//= require angular/angular
+//= require angular-route/angular-route
+//= require angular-animate/angular-animate
+//= require angular-resource/angular-resource
+//= require ng-rails-csrf
+
+//= require modules
+//= require routes
+//= require controllers/ListController 
+//= require services/CultureService
+
+//= require_tree . 
