@@ -3,10 +3,10 @@
     '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
       return $routeProvider.when('/mapView', {
         templateUrl: 'mapView.html',
-        controller: 'MapController'
+        controller: 'LandmarkController'
       }).when('/listView', {
         templateUrl: 'listView.html',
-        controller: 'ListController'
+        controller: 'LandmarkController'
       }).otherwise({
         redirectTo: '/mapView'
       });

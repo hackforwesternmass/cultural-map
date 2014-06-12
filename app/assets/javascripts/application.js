@@ -15,15 +15,17 @@
 //= require modernizr
 //= require foundation
 
+//= require lodash 
 //= require angular/angular
 //= require angular-route/angular-route
 //= require angular-animate/angular-animate
 //= require angular-resource/angular-resource
+//= require angular-google-maps
 //= require ng-rails-csrf
 
 //= require modules
 //= require routes
-//= require controllers/ListController 
+//= require controllers/LandmarkController 
 //= require services/CultureService
 
 //= require_tree . 

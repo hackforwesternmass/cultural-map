@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" class="no-js" ng-app="cultureApp">
+<html lang="en" class="no-js" ng-app="cultureApp" ng-controller="LandmarkController">
   <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
 		height: 100%;
 		margin: 0px;
 		padding: 0px
-		}#map-canvas {
+		}#map-canva
 		height: 100%;
 		margin: 0px;
 		padding: 0px;
@@ -18,15 +18,42 @@
 	</style>
 
 	<script type="text/ng-template" id="listView.html">
+		<div id="list_view" >
+				  <div class="landmark-item" ng-repeat="landmark in landmarks">
+            <section>
+                <h3>{{ landmark.description }}</h3>
+                <p>{{ landmark.short_description }}</p>
+                <span class="address">{{ landmark.address }}
+                  {{ landmark.city }}
+                  {{ landmark.state }}
+                </span>
+                <p> {{ landmark.landmark_type }}</p>
+              <div class="button small-btn">See more</div>
+            </section>
+          </div>
+		</div>
 
 	</script>
 
+
 	<script type="text/ng-template" id="mapView.html">
-		<div id="map-canvas" ng-controller="MapController">
-		</div>
+
+
+		 <google-map center="map.center" zoom="map.zoom" id="map-canvas">
+
+		 	<marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image">	
+		 		<marker-label content="landmark.description" anchor="0 32">  
+
+		 		</marker-label>
+    	</marker>
+
+		 </google-map>
+
 	</script>
 
 	<title>Culture Map</title>
+
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<%= csrf_meta_tags %>
 	<%= stylesheet_link_tag    "application" %>
 	<%= javascript_include_tag "vendor/modernizr" %>
