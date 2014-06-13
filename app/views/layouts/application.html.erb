@@ -38,11 +38,28 @@
 
 	<script type="text/ng-template" id="mapView.html">
 		 <google-map center="map.center" zoom="map.zoom" id="map-canvas" options='map.mapOptions'>
-		 	<marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image" click="landmarkClick" >	
+		 	<marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image" click="landmarkClick(landmark)" >	
 
-    	</marker>
+     	</marker>
 		 </google-map>
 	</script>
+
+
+	<script type="text/ng-template" id="myModalContent.html">
+
+   	         <section>
+                <h3>{{ landmark.description }}</h3>
+                <p>{{ landmark.short_description }}</p>
+                <span class="address">{{ landmark.address }}
+                  {{ landmark.city }}
+                  {{ landmark.state }}
+                </span>
+                <p> {{ landmark.landmark_type }}</p>
+            </section>
+     <button class="button" ng-click="reload()">OK</button>
+    <a class="close-reveal-modal" ng-click="reload()">&#215;</a>
+
+  </script>
 
 	<title>Culture Map</title>
 

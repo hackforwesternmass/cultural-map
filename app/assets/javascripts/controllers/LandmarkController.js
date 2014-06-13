@@ -1,7 +1,7 @@
 (function() {
   angular.module('cultureApp').controller('LandmarkController', [
-    '$scope', '$location', 'CultureService',
-    function($scope, $location, CultureService) {
+    '$scope', '$location', '$modal', 'CultureService',
+    function($scope, $location, $modal, CultureService) {
 
       $scope.list = function() {
         return CultureService.list().then(function(result) {
@@ -53,13 +53,42 @@
       },
 
       $scope.mapOptions = {
-          scrollwheel: false, 
-          draggable: false 
+        scrollWheel: false,
+        draggable: false
       },
 
-      $scope.landmarkClick = function() {
-        alert("hey!");
+      $scope.landmarkClick = function(landmarkClicked) {
+
+
+        var ModalInstanceCtrl = function($scope, $modalInstance, $rootScope, landmark) {
+
+          $scope.landmark = landmark;
+
+          // reload is a hack. we can only click on marker somehow, get "Cannot set property 'isDrawn' of undefined" on second click of marker 
+          $scope.reload = function(){
+            window.location.reload();
+          }
+        };
+
+        var modalInstance = $modal.open({
+          templateUrl: 'myModalContent.html',
+          controller: ModalInstanceCtrl,
+          resolve: {
+            landmark: function() {
+              return landmarkClicked;
+            },
+          },
+        });
+
+        modalInstance.result.then($scope.reload, $scope.reload);
+
       },
+
+
+      $scope.reload = function() {
+        window.location.reload();
+      },
+
 
       $scope.initialize = function() {
         CultureService.getLocation(function(lat, lon) {
@@ -71,14 +100,14 @@
             },
             scrollwheel: false,
             fitBounds: true,
-               marker_image : {
-                url: '/assets/marker.png',
-                size: new google.maps.Size(20, 32),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(0, 32)
-              },
-            marker_options : {
-              shape : {
+            marker_image: {
+              url: '/assets/marker.png',
+              size: new google.maps.Size(20, 32),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(0, 32)
+            },
+            marker_options: {
+              shape: {
                 coords: [1, 1, 1, 20, 18, 20, 18, 1],
                 type: 'poly'
               }

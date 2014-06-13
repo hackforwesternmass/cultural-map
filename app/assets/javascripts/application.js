@@ -21,6 +21,7 @@
 //= require angular-animate/angular-animate
 //= require angular-resource/angular-resource
 //= require angular-google-maps
+//= require angular-mm-foundation
 //= require ng-rails-csrf
 
 //= require modules
