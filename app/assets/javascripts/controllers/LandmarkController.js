@@ -49,7 +49,16 @@
           latitude: 42,
           longitude: -72
         },
-        zoom: 8
+        zoom: 8,
+      },
+
+      $scope.mapOptions = {
+          scrollwheel: false, 
+          draggable: false 
+      },
+
+      $scope.landmarkClick = function() {
+        alert("hey!");
       },
 
       $scope.initialize = function() {

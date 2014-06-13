@@ -37,18 +37,11 @@
 
 
 	<script type="text/ng-template" id="mapView.html">
+		 <google-map center="map.center" zoom="map.zoom" id="map-canvas" options='map.mapOptions'>
+		 	<marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image" click="landmarkClick" >	
 
-
-		 <google-map center="map.center" zoom="map.zoom" id="map-canvas">
-
-		 	<marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image">	
-		 		<marker-label content="landmark.description" anchor="0 32">  
-
-		 		</marker-label>
     	</marker>
-
 		 </google-map>
-
 	</script>
 
 	<title>Culture Map</title>

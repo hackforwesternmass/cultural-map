@@ -17,16 +17,4 @@ var CM = {
     jQuery('#hero-home').css('background-position', coords);
   },
 
-  viewMap: function() {
-    $('#list-view').hide();
-    $('#map-canvas').show();
-  },
-
-  viewList: function() {
-    $('#map-canvas').hide();
-
-    //
-
-    $('#list-view').show();
-  }
 };
