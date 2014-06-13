@@ -50,6 +50,9 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (0.10.0)
+    dotenv-rails (0.10.0)
+      dotenv (= 0.10.0)
     erubis (2.7.0)
     execjs (2.2.0)
     foundation-rails (5.2.3.0)
@@ -144,6 +147,7 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 4.0.0)
   devise
+  dotenv-rails
   foundation-rails (~> 5.2.3.0)
   geocoder
   jbuilder (~> 2.0)
