@@ -1,6 +1,6 @@
 // here we are dynamically generating css based on the rails envrionment 
 
-$site: <%= !ENV['site'].nil? ? ENV['site'] : "default" %> ; 
+$site: <%= !ENV['site'].nil? ? ENV['site'].upcase : "default".upcase %> ; 
 
 // default values: 
 $menu_primary: #00AEEF; 

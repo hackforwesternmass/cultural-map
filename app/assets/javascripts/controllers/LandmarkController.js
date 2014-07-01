@@ -64,7 +64,7 @@
 
           $scope.landmark = landmark;
 
-          // reload is a hack. we can only click on marker somehow, get "Cannot set property 'isDrawn' of undefined" on second click of marker 
+          // reload is a hack. we can only click on marker once, get "Cannot set property 'isDrawn' of undefined" on second click of marker 
           $scope.reload = function(){
             window.location.reload();
           }
@@ -101,7 +101,7 @@
             scrollwheel: false,
             fitBounds: true,
             marker_image: {
-              url: '/assets/marker.png',
+              url: "/assets/marker_" + window.cmconfig.site + ".png",
               size: new google.maps.Size(20, 32),
               origin: new google.maps.Point(0, 0),
               anchor: new google.maps.Point(0, 32)

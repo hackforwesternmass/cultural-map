@@ -17,6 +17,12 @@
 	  }
 	</style>
 
+  <script type="text/javascript">
+    window.cmconfig = {
+      site: "<%= get_site()  %>"
+    };
+  </script>
+
 	<script type="text/ng-template" id="listView.html">
 		<div id="list_view" >
 				  <div class="landmark-item" ng-repeat="landmark in landmarks">
@@ -46,8 +52,8 @@
 
 
 	<script type="text/ng-template" id="myModalContent.html">
-
    	         <section>
+   	         		<img id="landmark_img" src="{{landmark.image_url}}" />
                 <h3>{{ landmark.description }}</h3>
                 <p>{{ landmark.short_description }}</p>
                 <span class="address">{{ landmark.address }}
