@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cultureApp" ng-controller="LandmarkController">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        html, body {
+          height: 100%;
+          margin: 0px;
+          padding: 0px
+      }
+      #map-canva {
+          height: 100%;
+          margin: 0px;
+          padding: 0px;
+          width: 100%;
+      }
+    </style>
+
+    <script type="text/javascript">
+      window.cmconfig = {
+        site: "<%= get_site()  %>"
+      };
+    </script>
+
+    <script type="text/ng-template" id="listView.html">
+      <div id="list_view" >
+            <div class="landmark-item" ng-repeat="landmark in landmarks">
+              <section>
+                  <h3>{{ landmark.description }}</h3>
+                  <p>{{ landmark.short_description }}</p>
+                  <span class="address">{{ landmark.address }}
+                    {{ landmark.city }}
+                    {{ landmark.state }}
+                  </span>
+                  <p> {{ landmark.landmark_type }}</p>
+                <div class="button small-btn">See more</div>
+              </section>
+            </div>
+      </div>
+
+    </script>
+
+    <script type="text/ng-template" id="mapView.html">
+       <google-map center="map.center" zoom="map.zoom" id="map-canvas" options='map.mapOptions'>
+        <marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image" click="landmarkClick(landmark)" >	
+
+        </marker>
+       </google-map>
+    </script>
+
+
+    <script type="text/ng-template" id="myModalContent.html">
+               <section>
+                  <img id="landmark_img" src="{{landmark.image_url}}" />
+                  <h3>{{ landmark.description }}</h3>
+                  <p>{{ landmark.short_description }}</p>
+                  <span class="address">{{ landmark.address }}
+                    {{ landmark.city }}
+                    {{ landmark.state }}
+                  </span>
+                  <p> {{ landmark.landmark_type }}</p>
+              </section>
+       <button class="button" ng-click="reload()">OK</button>
+      <a class="close-reveal-modal" ng-click="reload()">&#215;</a>
+
+    </script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <style>
+      @import 'dynamic';
+      @import 'foundation';
+      @import 'style';
+
+      .top-bar-section ul li {
+        background-color: $menu_primary;
+      }
+
+      #map-canvas{
+        height: 600px;
+      }
+
+      // Fixes the conflict between Google Maps controls and Foundation
+      #map-canvas img{
+        max-width: none;
+      }
+
+      .angular-google-map-container { height: 600px; width: 100%; max-width: none;}
+
+      .reveal-modal > :first-child{
+        margin-top: 100px;
+
+      }
+
+      #landmark_image {
+        max-width: 300px;
+        max-height: 300px;
+      }
+    </style>
+
+    <title>Culture Map</title>
+</head>
+  <body>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/foundation/js/foundation.js"></script>
+
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="javascripts/vendor/angular-google-maps.js"></script>
+
+
+    <script src="javascripts/modules.js"></script>
+    <script src="javascripts/routes.js"></script>
+    <script src="javascripts/controllers/LandmarkController.js"></script>
+    <script src="javascripts/services/CultureService.js"></script>
+</body>
+</html>
