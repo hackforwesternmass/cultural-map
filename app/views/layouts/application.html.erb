@@ -52,11 +52,12 @@
 
     <script type="text/ng-template" id="myModalContent.html">
       <section>
+      <h2>{{ landmark.short_description }}</h2>
       <img id="landmark_img" src="{{landmark.image_url}}" />
-      <h3>{{ landmark.description }}</h3>
-      <p>{{ landmark.short_description }}</p>
-      <span class="address">{{ landmark.address }}
-        {{ landmark.city }}
+      <p>{{ landmark.description }}</p>
+      <span class="address">{{ landmark.address }}</span><br/>
+      <span class="address">
+        {{ landmark.city }},
         {{ landmark.state }}
       </span>
       <p> {{ landmark.landmark_type }}</p>
