@@ -19,13 +19,18 @@
         });
         return {
           getLocation: function(callback) {
-            navigator.geolocation.getCurrentPosition(function(pos) {
-              var lat = pos.coords.latitude;
-              var lon = pos.coords.longitude;
-              callback(lat, lon);
-            }, function() {
-              alert("Please allow us to find your current location");
-            });
+            var lat = '42.3295905';
+            var lon = '-72.6633999';
+            var subdomain = location.hostname.split('.')[0];
+            if (subdomain == 'holyoke') {
+               lat = '42.2240909';
+               lon = '-72.640495';
+	    };
+            if (subdomain == 'amherst') {
+               lat = '42.3676145';
+               lon = '-72.5054909';
+            }; 
+            callback(lat,lon);
         },
         create: function(new_badge) {
 
