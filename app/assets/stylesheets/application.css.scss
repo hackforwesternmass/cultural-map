@@ -1,7 +1,6 @@
 @import 'foundation';
 @import 'style';
 
-
 #map-canvas{
   height: 600px;
 }
@@ -11,7 +10,7 @@
   max-width: none;
 }
 
-.angular-google-map-container { height: 600px; width: 100%; max-width: none;}
+.angular-google-map-container { height: 800px; width: 100%; max-width: none;}
 
 .reveal-modal > :first-child{
   margin-top: 100px;
@@ -23,3 +22,7 @@
   max-height: 300px;
 }
 
+.main-content {
+  position: relative;
+  top: 45px;
+} 
