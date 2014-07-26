@@ -102,8 +102,6 @@ footer{
   -webkit-animation:colorchange 10s infinite alternate;
 }
 
-
-
 .section{
   padding: 0px 0px 0px 0px;
 }
@@ -141,7 +139,7 @@ ul{margin-left:0px;}
   height:auto;
 }
 
-.main-section{
+.main-content {
   padding-bottom: 100px;
   position:relative;
   h1 {
@@ -167,6 +165,12 @@ ul{margin-left:0px;}
     .address {
       font-style: italic;
       font-weight: lighter;
+    }
+
+    section {
+      .button {
+        margin-top: 10px;
+      }
     }
   }
 }
