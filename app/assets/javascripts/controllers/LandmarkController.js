@@ -46,16 +46,16 @@
 
       $scope.map = {
         center: {
-          latitude: 42,
-          longitude: -72
+          latitude: 42.3058288,
+          longitude: -72.581405
         },
         zoom: 8,
       },
 
-      $scope.mapOptions = {
-        scrollWheel: true,
-        draggable: true
-      },
+      // $scope.mapOptions = {
+      //   scrollWheel: true,
+      //   draggable: true
+      // },
 
       $scope.landmarkClick = function(landmarkClicked) {
 
@@ -98,9 +98,9 @@
               latitude: lat,
               longitude: lon
             },
-            scrollwheel: true,
-            fitBounds: false,
-            draggable: true,
+            // scrollwheel: true,
+            // fitBounds: false,
+            // draggable: true,
             marker_image: {
               url: "/assets/marker_" + window.cmconfig.site + ".png",
               size: new google.maps.Size(20, 32),

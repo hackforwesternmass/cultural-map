@@ -2,21 +2,25 @@
 
     color = "#00AEEF;"
     host = request.host_with_port.downcase
-    amherst_color = "#436e9b;"
-    northampton_color = "#5c770e;"
-    holyoke_color = "#951601;"
+    amherst_color = "#2aace3;"
+    northampton_color = "#719b4d;"
+    holyoke_color = "#872c2a;"
     site_text = "Western MA"
+    logo_file = "culturemap_logo_DEFAULT.png"
 
 
     if host.include?("amherst")
       color = amherst_color
       site_text = "Amherst"
+      logo_file = "culturemap_logo_AMHERST.png"
     elsif host.include?("holyoke")
       color = holyoke_color
       site_text = "Holyoke"
+      logo_file = "culturemap_logo_HOLYOKE.png"
     elsif host.include?("northampton")
       color = northampton_color
       site_text = "Northampton"
+      logo_file = "culturemap_logo_NORTHAMPTON.png"
     end
 
   %>
@@ -38,7 +42,7 @@
     <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
-        <h1><a href="<%= root_path %>"><img src="/assets/culturemap_logoname.png"></a>
+        <h1><a href="<%= root_path %>"><img src="/assets/<%= logo_file %>"></a>
         </h1>
       </li>
        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
