@@ -26,7 +26,7 @@
     </script>
 
     <script type="text/ng-template" id="listView.html">
-      <div id="list_view" >
+      <div id="list_view">
         <div class="landmark-item" ng-repeat="landmark in landmarks">
           <section>
           <h3>{{ landmark.description }}</h3>
@@ -36,7 +36,7 @@
             {{ landmark.state }}
           </span>
           <p> {{ landmark.landmark_type }}</p>
-          <div class="button small-btn">See more</div>
+          <div class="button small-btn" ng-click="openLandmarkModal()">See more</div>
           </section>
         </div>
       </div>
@@ -66,6 +66,7 @@
     </script>
 
     <title>Culture Map</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <%= csrf_meta_tags %>
