@@ -9,12 +9,13 @@ class LandmarksController < ApplicationController
   # lon - Longitude of user
   # within - Maximum number of miles away from user
   def index
-    if params[:lat] || params[:lon] || params[:within]
-      within     = params[:within] ? params[:within] : 1
-      @landmarks = Landmark.near([params[:lat], params[:lon]], within)
-    else
-      @landmarks = Landmark.order('id asc')
-    end
+    # if params[:lat] || params[:lon] || params[:within]
+    #   within     = params[:within] ? params[:within] : 1
+    #   @landmarks = Landmark.near([params[:lat], params[:lon]], within)
+    # else
+    #   @landmarks = Landmark.order('id asc')
+    # end
+    @landmarks = Landmark.all
   end
 
   # GET /landmarks/1
