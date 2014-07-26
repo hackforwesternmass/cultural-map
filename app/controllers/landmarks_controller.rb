@@ -81,7 +81,7 @@ class LandmarksController < ApplicationController
     def landmark_params
       params.require(:landmark).permit(:description,
                                        :short_description,
-                                       :picture_url,
+                                       :image_url,
                                        :city,
                                        :state,
                                        :latitude,
