@@ -1,7 +1,49 @@
-  <nav class="top-bar" data-topbar>
+      
+  <% 
+
+    color = "#00AEEF;"
+    host = request.host_with_port.downcase
+    amherst_color = "#436e9b;"
+    northampton_color = "#5c770e;"
+    holyoke_color = "#951601;"
+    site_text = "Western MA"
+
+
+    if host.include?("amherst")
+      color = amherst_color
+      site_text = "Amherst"
+    elsif host.include?("holyoke")
+      color = holyoke_color
+      site_text = "Holyoke"
+    elsif host.include?("northampton")
+      color = northampton_color
+      site_text = "Northampton"
+    end
+      
+  %>  
+
+  <style type="text/css">
+    
+    .top-bar, .tab-bar{
+       background-color:  <%= color.html_safe %>
+       position:fixed !important;
+       width:100%;
+       z-index:500;
+    }
+    .top-bar-section ul li {
+      background-color: <%= color.html_safe %>
+    }
+
+  </style>
+
+
+    <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
-        <h1><a href="<%= root_path %>"><img src="/assets/cuturemap_logo.png"></a></h1>
+        <h1><a href="<%= root_path %>"><img src="/assets/cuturemap_logo.png"></a>
+          <a id="brand_text"><%= site_text %></a>
+        </h1>
+
       </li>
        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
