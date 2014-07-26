@@ -1,0 +1,28 @@
+{
+  "name": "cultural-map",
+  "devDependencies": {
+    "angular": "1.2.6",
+    "angular-resource": "1.2.6",
+    "angular-route": "1.2.6",
+    "angular-animate": "1.2.6",
+    "angular-touch": "1.2.6",
+    "angular-mocks": "*",
+    "angular-sanitize": "*",
+    "angular-cookies": "*",
+    "angular-google-maps": "1.1.2",
+    "angularjs-rails-resource": "*",
+    "json3": "*",
+    "jquery": "*",
+    "bootstrap-sass": "*",
+    "foundation": "*",
+    "es5-shim": "*",
+    "underscore": "*",
+    "angular-scenario": "*",
+    "angular-mm-foundation": "*",
+    "modernizr": "*"
+  },
+  "dependencies": {},
+  "resolutions": {
+    "angular": "1.2.21"
+  }
+}

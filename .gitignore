@@ -20,3 +20,7 @@
 *~
 .powrc
 .rvmrc
+node_modules/
+frontend/app/bower_components
+culturemap_development
+culturemap_test
