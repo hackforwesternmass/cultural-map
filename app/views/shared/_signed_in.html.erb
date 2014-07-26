@@ -9,15 +9,7 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Description</th>
               <th>Short description</th>
-              <th>Picture url</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Latitude</th>
-              <th>Longitude</th>
-              <th>Landmark type</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -26,15 +18,7 @@
             <% @landmarks.each do |landmark| %>
               <tr>
                 <td><%= landmark.id %></td>
-                <td><%= landmark.description %></td>
                 <td><%= landmark.short_description %></td>
-                <td><%= landmark.image_url%></td>
-                <td><%= landmark.address %></td>
-                <td><%= landmark.city %></td>
-                <td><%= landmark.state %></td>
-                <td><%= landmark.latitude %></td>
-                <td><%= landmark.longitude %></td>
-                <td><%= landmark.landmark_type %></td>
                 <td><%= link_to 'Show', landmark, class: 'tiny button' %></td>
                 <td><%= link_to 'Edit', edit_landmark_path(landmark), class: 'tiny button' %></td>
                 <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' }, class: 'alert tiny button' %></td>
