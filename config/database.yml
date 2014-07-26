@@ -1,7 +1,7 @@
 # PostgreSQL. Versions 8.2 and up are supported.
 
 development:
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   database: culturemap_development
   pool: 5
@@ -9,7 +9,7 @@ development:
   password: culture
 
 test: &test
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   database: culturemap_test
   pool: 5
@@ -17,7 +17,7 @@ test: &test
   password: culture
 
 production:
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   database: culturemap_production
   pool: 5

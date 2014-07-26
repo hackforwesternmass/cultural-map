@@ -24,4 +24,5 @@ group :development do
   gem 'binding_of_caller' # For Better Errors' advanced features
   gem 'quiet_assets'
   gem 'spring'
+  gem 'sqlite3'
 end
