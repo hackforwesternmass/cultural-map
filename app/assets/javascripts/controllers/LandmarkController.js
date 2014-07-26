@@ -53,8 +53,8 @@
       },
 
       $scope.mapOptions = {
-        scrollWheel: false,
-        draggable: false
+        scrollWheel: true,
+        draggable: true
       },
 
       $scope.landmarkClick = function(landmarkClicked) {
@@ -93,13 +93,14 @@
       $scope.initialize = function() {
         CultureService.getLocation(function(lat, lon) {
           $scope.map = {
-            zoom: 15,
+            zoom: 13,
             center: {
               latitude: lat,
               longitude: lon
             },
-            scrollwheel: false,
-            fitBounds: true,
+            scrollwheel: true,
+            fitBounds: false,
+            draggable: true,
             marker_image: {
               url: "/assets/marker_" + window.cmconfig.site + ".png",
               size: new google.maps.Size(20, 32),
