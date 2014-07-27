@@ -1,36 +1,36 @@
 (function() {
-    angular.module('cultureApp.services').factory('CultureService', [
-      '$resource', '$rootScope',
-      function($resource, $scope) {
-        var service;
-        service = $resource('/landmarks.json', {}, {
-          'create': {
-            method: 'POST'
-          },
-          'list': {
-            method: 'GET',
-            isArray: true
-          },
-          'show': {
-            method: 'GET'
-          }
-        }, 'delete', {
-          method: 'DELETE'
-        });
-        return {
-          getLocation: function(callback) {
-            var lat = '42.3295905';
-            var lon = '-72.6633999';
-            var subdomain = location.hostname.split('.')[0];
-            if (subdomain == 'holyoke') {
-               lat = '42.2240909';
-               lon = '-72.640495';
-	    };
-            if (subdomain == 'amherst') {
-               lat = '42.3676145';
-               lon = '-72.5054909';
-            }; 
-            callback(lat,lon);
+  angular.module('cultureApp.services').factory('CultureService', [
+    '$resource', '$rootScope',
+    function($resource, $scope) {
+      var service;
+      service = $resource('/api/landmarks.json', {}, {
+        'create': {
+          method: 'POST'
+        },
+        'list': {
+          method: 'GET',
+          isArray: true
+        },
+        'show': {
+          method: 'GET'
+        }
+      }, 'delete', {
+        method: 'DELETE'
+      });
+      return {
+        getLocation: function(callback) {
+          var lat = '42.3295905';
+          var lon = '-72.6633999';
+          var subdomain = location.hostname.split('.')[0];
+          if (subdomain == 'holyoke') {
+            lat = '42.2240909';
+            lon = '-72.640495';
+          };
+          if (subdomain == 'amherst') {
+            lat = '42.3676145';
+            lon = '-72.5054909';
+          };
+          callback(lat,lon);
         },
         create: function(new_badge) {
 
@@ -46,8 +46,6 @@
         "delete": function(badge_id) {
 
         },
-
-
       };
     }]);
 

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resource :homepage, only: [:index]
-  resources :landmarks
+  scope '/api' do
+    resource :homepage, only: [:index]
+    resources :landmarks
+  end
 end

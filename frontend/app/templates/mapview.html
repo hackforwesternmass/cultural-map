@@ -1,0 +1,4 @@
+ <google-map center="map.center" zoom="map.zoom" id="map-canvas" options='map.mapOptions'>
+  <marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image" click="landmarkClick(landmark)" >	
+  </marker>
+ </google-map>

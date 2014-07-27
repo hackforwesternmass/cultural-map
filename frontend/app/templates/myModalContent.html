@@ -1,0 +1,12 @@
+<section>
+  <img id="landmark_img" src="{{landmark.image_url}}" />
+  <h3>{{ landmark.description }}</h3>
+  <p>{{ landmark.short_description }}</p>
+  <span class="address">{{ landmark.address }}
+    {{ landmark.city }}
+    {{ landmark.state }}
+  </span>
+  <p>{{ landmark.landmark_type }}</p>
+</section>
+<button class="button" ng-click="reload()">OK</button>
+<a class="close-reveal-modal" ng-click="reload()">&#215;</a>
