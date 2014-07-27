@@ -27,15 +27,25 @@
 
   <style type="text/css">
 
-    .top-bar, .tab-bar{
+    .top-bar, .tab-bar {
        background-color:  <%= color.html_safe %>
        position:fixed !important;
        width:100%;
        z-index:500;
     }
-    .top-bar-section ul li {
-      background-color: <%= color.html_safe %>
+    .top-bar.expanded .title-area { 
+       background-color:  <%= color.html_safe %>
     }
+    .top-bar-section ul li {
+      background-color: #ffffff;
+    }
+    .top-bar-section ul li:hover {
+      background-color: #333;
+    }
+    .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section ul li:hover:not(.has-form) > a {
+      background-color: <%= color.html_safe %>
+      opacity: 0.75;
+    }  
 
   </style>
 
