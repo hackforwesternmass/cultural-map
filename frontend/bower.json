@@ -14,11 +14,9 @@
     "json3": "*",
     "jquery": "*",
     "bootstrap-sass": "*",
-    "foundation": "*",
     "es5-shim": "*",
     "underscore": "*",
     "angular-scenario": "*",
-    "angular-mm-foundation": "*",
     "modernizr": "*"
   },
   "dependencies": {}
