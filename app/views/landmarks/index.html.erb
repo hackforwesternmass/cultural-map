@@ -1,15 +1,20 @@
+<%
+
+host = request.host_with_port.downcase
+logo_file = "culturemap_logo_DEFAULT.png"
+
+if host.include?("amherst")
+  logo_file = "culturemap_logo_AMHERST.png"
+elsif host.include?("holyoke")
+  logo_file = "culturemap_logo_HOLYOKE.png"
+elsif host.include?("northampton")
+  logo_file = "culturemap_logo_NORTHAMPTON.png"
+end
+
+%>
+
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
-    <!-- <nav class="top-bar hide-for-small">
-    <ul class="title-area left"><li class="name"><a href="#"> <img src="/assets/cuturemap_logo.png"> </a> </li> </ul>
-    <section class="top-bar-section">
-    <ul class="right">
-      <li><a href="#" onclick="CM.viewList">List Attractions</a></li>
-      <li><a href="#" onclick="CM.viewMap">Map Attractions</a></li>
-    </ul>
-    </section>
-    </nav> -->
-
     <%= render 'shared/header' %>
 
     <% if current_user %>
@@ -20,7 +25,7 @@
 
     <footer>
     <div class="small-10-centered medium-4 left columns">
-      <div class="name"> <a href="#"> <img src="/assets/cuturemap_logo.png" alt="culturemap"/> </a> </div>
+      <div class="name"> <a href="#"> <img src="/assets/<%= logo_file %>" alt="culturemap"/> </a> </div>
     </div>
     </footer>
 
