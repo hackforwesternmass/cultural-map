@@ -19,19 +19,21 @@
         });
         return {
           getLocation: function(callback) {
-            var lat = '42.3295905';
-            var lon = '-72.6633999';
-            var subdomain = location.hostname.split('.')[0];
-            if (subdomain == 'holyoke') {
-               lat = '42.2240909';
-               lon = '-72.640495';
-	    };
-            if (subdomain == 'amherst') {
-               lat = '42.3676145';
-               lon = '-72.5054909';
-            }; 
-            callback(lat,lon);
-        },
+               var lat = '42.3295905';
+               var lon = '-72.6633999';
+               var subdomain = location.hostname.split('.')[0];
+               if (subdomain == 'northampton') {
+                 lat = '42.3295905';
+                 lon = '-72.6633999';
+	       } else if (subdomain == 'holyoke') {
+                 lat = '42.2240909';
+                 lon = '-72.640495';
+	       } else if (subdomain == 'amherst') {
+                 lat = '42.3676145';
+                 lon = '-72.5054909';
+               }; 
+               callback(lat, lon);
+       },
         create: function(new_badge) {
 
         },
