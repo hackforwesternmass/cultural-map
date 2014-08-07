@@ -21,6 +21,7 @@ class LandmarksController < ApplicationController
   # GET /landmarks/1
   # GET /landmarks/1.json
   def show
+    @landmark = Landmark.find(params[:id])
   end
 
   # GET /landmarks/new

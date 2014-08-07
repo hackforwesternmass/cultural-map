@@ -1,0 +1,14 @@
+<div id="list_view">
+  <div class="landmark-item" ng-repeat="landmark in landmarks">
+    <section>
+    <h3>{{ landmark.description }}</h3>
+    <p>{{ landmark.shortDescription }}</p>
+    <span class="address">{{ landmark.address }}
+      {{ landmark.city }}
+      {{ landmark.state }}
+    </span>
+    <p> {{ landmark.landmark_type }}</p>
+    <button class="btn btn-default" ng-click="openLandmarkModal()">See more</button>
+    </section>
+  </div>
+</div>

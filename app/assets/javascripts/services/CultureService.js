@@ -3,7 +3,7 @@
       '$resource', '$rootScope',
       function($resource, $scope) {
         var service;
-        service = $resource('/landmarks.json', {}, {
+        service = $resource('/api/landmarks.json', {}, {
           'create': {
             method: 'POST'
           },
@@ -34,7 +34,7 @@
                }; 
                callback(lat, lon);
        },
-        create: function(new_badge) {
+       create: function(new_badge) {
 
         },
         list: function(lat, lon) {
@@ -48,8 +48,6 @@
         "delete": function(badge_id) {
 
         },
-
-
       };
     }]);
 
