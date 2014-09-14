@@ -37,7 +37,6 @@ class LandmarksController < ApplicationController
   # POST /landmarks.json
   def create
     @landmark = Landmark.new(landmark_params)
-
     respond_to do |format|
       if @landmark.save
         format.html { redirect_to @landmark, notice: 'Landmark was successfully created.' }
