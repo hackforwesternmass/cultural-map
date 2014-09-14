@@ -9,40 +9,6 @@
         });
       },
 
-      $scope.addLandmarks = function() {
-
-        // var mapOptions = $scope.map;
-
-        // var locations = {};
-        // var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-        // $.each($.landmarks, function() {
-
-        //   var position = new google.maps.LatLng(v.latitude, v.longitude);
-
-        //   var marker_image = {
-        //     url: '/assets/marker.png',
-        //     size: new google.maps.Size(20, 32),
-        //     origin: new google.maps.Point(0, 0),
-        //     anchor: new google.maps.Point(0, 32)
-        //   };
-
-        //   var shape = {
-        //     coords: [1, 1, 1, 20, 18, 20, 18, 1],
-        //     type: 'poly'
-        //   };
-
-        //   var marker = new google.maps.Marker({
-        //     position: position,
-        //     map: map,
-        //     icon: marker_image,
-        //     shape: shape
-        //   });
-
-        //   marker.setTitle(v.description);
-        //   $scope.attachSecretMessage(marker, v.description);
-        // });
-      },
 
       $scope.map = {
         center: {
@@ -51,11 +17,6 @@
         },
         zoom: 15,
       },
-
-      // $scope.mapOptions = {
-      //   scrollWheel: true,
-      //   draggable: true
-      // },
 
       $scope.landmarkClick = function(landmarkClicked) {
 
