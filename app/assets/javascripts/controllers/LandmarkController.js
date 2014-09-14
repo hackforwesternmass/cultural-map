@@ -19,8 +19,11 @@
       },
 
       $scope.landmarkClick = function(landmarkClicked) {
+        $scope.openLandmarkModal(landmarkClicked);
+      },
 
-        var ModalInstanceCtrl = function($scope, $modalInstance, $rootScope, landmark) {
+      $scope.openLandmarkModal = function(landmark) {
+            var ModalInstanceCtrl = function($scope, $modalInstance, $rootScope, landmark) {
           $scope.landmark = landmark;
         };
 
@@ -29,12 +32,12 @@
           controller: ModalInstanceCtrl,
           resolve: {
             landmark: function() {
-              return landmarkClicked;
+              return landmark;
             },
           },
         });
 
-        modalInstance.result.then($scope.reload, $scope.reload);
+        modalInstance.result.then(modalInstance.close, modalInstance.close);
 
       },
 
