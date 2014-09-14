@@ -17,17 +17,13 @@ end
   <div class="inner-wrap">
     <%= render 'shared/header' %>
 
-    <% if current_user %>
-      <%= render 'shared/signed_in' %>
-    <% else %>
-      <%= render 'shared/visitor' %>
-    <% end %>
-
     <footer>
     <div class="small-10-centered medium-4 left columns">
       <div class="name"> <a href="#"> <img src="/assets/<%= logo_file %>" alt="culturemap"/> </a> </div>
     </div>
     </footer>
+
+    <%= render 'shared/visitor' %>
 
 
     <script>

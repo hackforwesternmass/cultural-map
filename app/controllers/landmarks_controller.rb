@@ -15,7 +15,19 @@ class LandmarksController < ApplicationController
     # else
     #   @landmarks = Landmark.order('id asc')
     # end
+
     @landmarks = Landmark.all
+
+    respond_to do |format|
+      format.html {
+         if user_signed_in?
+            render 'index_edit'
+         else 
+          redirect_to new_user_session_path()
+         end
+      }
+      format.json {render :json => @landmarks}
+    end
   end
 
   # GET /landmarks/1
