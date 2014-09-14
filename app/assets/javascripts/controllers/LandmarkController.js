@@ -23,11 +23,20 @@
       },
 
       $scope.openLandmarkModal = function(landmark) {
-            var ModalInstanceCtrl = function($scope, $modalInstance, $rootScope, landmark) {
+
+        var ModalInstanceCtrl = function($scope, $modalInstance, $rootScope, landmark) {
           $scope.landmark = landmark;
+          $scope.ok = function() {
+            $modalInstance.close();
+          };
+
+          $scope.cancel = function() {
+            $modalInstance.dismiss('cancel');
+          };
+
         };
 
-        var modalInstance = $modal.open({
+      var modalInstance = $modal.open({
           templateUrl: 'myModalContent.html',
           controller: ModalInstanceCtrl,
           resolve: {
@@ -35,17 +44,16 @@
               return landmark;
             },
           },
-        });
+          });
 
-        modalInstance.result.then(modalInstance.close, modalInstance.close);
-
+        modalInstance.result.then($scope.reload, $scope.reload);
       },
 
       // reload is a hack. we can only click on marker once, get "Cannot set property 'isDrawn' of undefined" on second click of marker 
-     
-      $scope.reload = function(){
+
+      $scope.reload = function() {
         // window.location.reload();
-       $location.path("/#/mapView");
+        $location.path("/#/mapView");
       },
 
       $scope.initialize = function() {

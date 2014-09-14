@@ -51,7 +51,7 @@
     </script>
 
     <script type="text/ng-template" id="myModalContent.html">
-      <section>
+      <section id="myModal">
       <h2>{{ landmark.short_description }}</h2>
       <img id="landmark_img" src="{{landmark.image_url}}" />
       <p>{{ landmark.description }}</p>
@@ -62,8 +62,8 @@
       </span>
       <p> {{ landmark.landmark_type }}</p>
       </section>
-      <button class="button" ng-click="reload()">OK</button>
-      <a class="close-reveal-modal" ng-click="reload()">&#215;</a>
+      <button class="button" ng-click="ok()">OK</button>
+      <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
     </script>
 
     <title>Culture Map</title>
