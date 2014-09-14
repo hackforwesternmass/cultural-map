@@ -44,9 +44,9 @@
 
     <script type="text/ng-template" id="mapView.html">
       <google-map center="map.center" zoom="map.zoom" id="map-canvas" options='map.mapOptions' draggable='true'>
-      <marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image" click="landmarkClick(landmark)">
+        <marker coords='landmark' ng-repeat="landmark in landmarks" options="map.marker_options" icon="map.marker_image" click="landmarkClick(landmark)" idkey='landmark.id'>
 
-      </marker>
+        </marker>
       </google-map>
     </script>
 

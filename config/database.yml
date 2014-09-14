@@ -1,12 +1,12 @@
 # PostgreSQL. Versions 8.2 and up are supported.
 
 development:
-  adapter: sqlite3
+  adapter: postgresql
   encoding: unicode
   database: culturemap_development
   pool: 5
   username: culture
-  password: culture
+  password: 
 
 test: &test
   adapter: sqlite3
