@@ -1,5 +1,18 @@
 (function () {
   var module = angular.module("angular-google-maps-example", ["google-maps"]);
+
+  module.run(function ($templateCache) {
+    $templateCache.put('control.tpl.html', '<button class="btn btn-sm btn-primary" ng-class="{\'btn-warning\': danger}" ng-click="controlClick()">{{controlText}}</button>');
+  });
+
+  module.controller('controlController', function ($scope) {
+    $scope.controlText = 'I\'m a custom control';
+    $scope.danger = false;
+    $scope.controlClick = function () {
+      $scope.danger = !$scope.danger;
+      alert('custom control clicked!')
+    };
+  });
 }());
 
 var rndAddToLatLon = function () {
@@ -93,7 +106,10 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
           latitude: 45,
           longitude: -74,
           showWindow: false,
-          title: 'Marker 2'
+          title: 'Marker 2',
+          options: {
+            animation: 1
+          }
         },
         {
           id: 2,
@@ -118,7 +134,11 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
           latitude: 46,
           longitude: -77,
           showWindow: false,
-          title: '[46,-77]'
+          options: {
+            labelContent: '[46,-77]',
+            labelAnchor: "22 0",
+            labelClass: "marker-labels"
+          }
         },
         {
           id: 2,
@@ -126,7 +146,12 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
           latitude: 33,
           longitude: -77,
           showWindow: false,
-          title: '[33,-77]'
+          options: {
+            labelContent: 'DRAG ME!',
+            labelAnchor: "22 0",
+            labelClass: "marker-labels",
+            draggable: true
+          }
         },
         {
           id: 3,
@@ -134,7 +159,11 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
           latitude: 35,
           longitude: -125,
           showWindow: false,
-          title: '[35,-125]'
+          options: {
+            labelContent: '[35,-125]',
+            labelAnchor: "22 0",
+            labelClass: "marker-labels"
+          }
         }
       ],
       mexiIdKey: 'mid',
@@ -165,13 +194,12 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
       dynamicMarkers: [],
       randomMarkers: [],
       doClusterRandomMarkers: true,
-      doUgly: true, //great name :)
+      doUgly: false, //great name :)
       clusterOptions: {title: 'Hi I am a Cluster!', gridSize: 60, ignoreHidden: true, minimumClusterSize: 2,
         imageExtension: 'png', imagePath: 'assets/images/cluster', imageSizes: [72]},
       clickedMarker: {
-        title: 'You clicked here',
-        latitude: null,
-        longitude: null
+        id: 0,
+        title: ''
       },
       events: {
         tilesloaded: function (map, eventName, originalEventArgs) {
@@ -181,34 +209,20 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
           $log.log("user defined event: " + eventName, mapModel, originalEventArgs);
 
           var e = originalEventArgs[0];
-
-          if (!$scope.map.clickedMarker) {
-            $scope.map.clickedMarker = {
-              title: 'You clicked here',
-              latitude: e.latLng.lat(),
-              longitude: e.latLng.lng()
-            };
-          }
-          else {
-            var marker = {
-              latitude: e.latLng.lat(),
-              longitude: e.latLng.lng()
-            };
-            $scope.map.clickedMarker = marker;
-          }
+          var lat = e.latLng.lat(),
+              lon = e.latLng.lng();
+          $scope.map.clickedMarker = {
+            id: 0,
+            title: 'You clicked here ' + 'lat: ' + lat + ' lon: ' + lon,
+            latitude: lat,
+            longitude: lon
+          };
           //scope apply required because this event handler is outside of the angular domain
           $scope.$apply();
         },
         dragend: function () {
           self = this;
           $timeout(function () {
-//                        modified = _.map($scope.map.mexiMarkers, function (marker) {
-//                            return {
-//                                latitude: marker.latitude + rndAddToLatLon(),
-//                                longitude: marker.longitude + rndAddToLatLon()
-//                            }
-//                        })
-//                        $scope.map.mexiMarkers = modified;
             var markers = [];
             var id = 0;
             if ($scope.map.mexiMarkers !== null && $scope.map.mexiMarkers.length > 0) {
@@ -374,13 +388,15 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
           draggable: true,
           geodesic: true,
           visible: true,
-          icons: [{
-          	icon: { 
-          		path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW          		
-          	},
-          	offset: '25px',
-          	repeat: '50px'
-          }]
+          icons: [
+            {
+              icon: {
+                path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW
+              },
+              offset: '25px',
+              repeat: '50px'
+            }
+          ]
         },
         {
           id: 2,
@@ -410,13 +426,15 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
           draggable: true,
           geodesic: true,
           visible: true,
-          icons: [{
-          	icon: { 
-          		path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW          		
-          	},
-          	offset: '25px',
-          	repeat: '50px'
-          }]
+          icons: [
+            {
+              icon: {
+                path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW
+              },
+              offset: '25px',
+              repeat: '50px'
+            }
+          ]
         },
         {
           id: 3,
@@ -437,6 +455,13 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
     }
 
   });
+  var marker2Dragend = function(marker,eventName,model,args){
+    model.options.labelContent = "Dragged lat: " + model.latitude + " lon: " + model.longitude;
+//    $scope.map.markers2[marker.key-1] = model;
+  };
+  $scope.map.markers2Events= {
+    dragend: marker2Dragend
+  };
 
   _.each($scope.map.markers, function (marker) {
     marker.closeClick = function () {
@@ -488,16 +513,24 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
       $scope.map.clusterOptions = angular.fromJson($scope.map.clusterOptionsText);
   });
 
-  $scope.$watch('map.doUgly', function (newValue, oldValue) {
+  var doUglyFn = function(value) {
+    if(value === undefined || value === null){
+      value = $scope.map.doUgly;
+    }
     var json;
+    if (value)
+      json = {title: 'Hi I am a Cluster!', gridSize: 60, ignoreHidden: true, minimumClusterSize: 2,
+        imageExtension: 'png', imagePath: 'assets/images/cluster', imageSizes: [72]};
+    else
+      json = {title: 'Hi I am a Cluster!', gridSize: 60, ignoreHidden: true, minimumClusterSize: 2};
+    $scope.map.clusterOptions = json;
+    $scope.map.clusterOptionsText = angular.toJson(json);
+  };
+  doUglyFn();
+
+  $scope.$watch('map.doUgly', function (newValue, oldValue) {
     if (newValue !== oldValue) {
-      if (newValue)
-        json = {title: 'Hi I am a Cluster!', gridSize: 60, ignoreHidden: true, minimumClusterSize: 2,
-          imageExtension: 'png', imagePath: 'http://localhost:3000/example/cluster', imageSizes: [72]};
-      else
-        json = {title: 'Hi I am a Cluster!', gridSize: 60, ignoreHidden: true, minimumClusterSize: 2};
-      $scope.map.clusterOptions = json;
-      $scope.map.clusterOptionsText = angular.toJson(json);
+      doUglyFn(newValue);
     }
   });
 
@@ -506,6 +539,7 @@ function ExampleController($scope, $timeout, $log, $http, Logger) {
   };
 
   $scope.searchLocationMarker = {
+    id: 0,
     coords: {
       latitude: 40.1451,
       longitude: -99.6680

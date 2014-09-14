@@ -66,7 +66,7 @@ angular.module('cultureApp.controllers').controller('LandmarkController', functi
       }
     });
 
-    modalInstance.result.then($scope.reload, $scope.reload);
+    modalInstance.result.then();
   };
 
   $scope.initialize();

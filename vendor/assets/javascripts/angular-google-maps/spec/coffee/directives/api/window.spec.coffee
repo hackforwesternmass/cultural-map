@@ -10,15 +10,7 @@ describe "directives.api.Window", ->
           @gmap.mockMarker()
           @gmap.mockInfoWindow()
           @gmap.mockEvent()
-        ### Possible Attributes
-                coords: '=coords',
-				show: '=show',
-				templateUrl: '=templateurl',
-				templateParameter: '=templateparameter',
-				isIconVisibleOnClick: '=isiconvisibleonclick',
-				closeClick: '&closeclick',           #scope glue to gmap InfoWindow closeclick
-				options: '=options'
-        ###
+
         @mocks =
             scope:
                 coords:
@@ -27,6 +19,7 @@ describe "directives.api.Window", ->
                 show: true
                 $watch:()->
                 $on:()->
+                control: {}
             element:
                 html: ->
                     "<p>test html</p>"
@@ -34,36 +27,66 @@ describe "directives.api.Window", ->
                 isiconvisibleonclick:true
             }
             ctrls: [
-                {getMap:()->{}}
+                {
+                  getMap:()->
+                    {}
+                }
             ]
 
 
         @timeOutNoW = (fnc,time) =>
             fnc()
+#        @gMarker = new google.maps.Marker(@commonOpts)
+        inject (_$rootScope_,$q, $compile, $http, $templateCache, Window) =>
+            @$rootScope =  _$rootScope_
+            d = $q.defer()
+            d.resolve @gmap
 
-        @gMarker = new google.maps.Marker(@commonOpts)
-        inject ($timeout, $compile, $http, $templateCache, $injector, $rootScope,Window) =>
-            @mocks.scope.$new = () =>
-                $rootScope.$new()
+            @$rootScope.deferred = d
+            @mocks.ctrls[0].getScope =  =>
+                @$rootScope
+            @windowScope = _.extend @$rootScope.$new(), @mocks.scope
+
+
             @subject = new Window(@timeOutNoW,$compile, $http, $templateCache)
             @subject.onChildCreation = (child) =>
                 @childWindow = child
 
+            @prom = d.promise
+            return
+
+    it "should test receive the fulfilled promise!!", ->
+        result = undefined
+        @prom.then (returnFromPromise) ->
+            result = returnFromPromise
+        @$rootScope.$apply() # promises are resolved/dispatched only on next $digest cycle
+        expect(result).toBe @gmap
+
     it 'can be created', ->
         expect(@subject).toBeDefined()
-        expect(@subject.index).toEqual(@index)
+#        expect(@subject.index).toEqual(@index)
 
-    describe "link", ->
-        #link: (scope, element, attrs, ctrls) =>
-        describe "withOUT marker", ->
-            it 'link creates window options and a childWindow', ->
-#                runs ->
-                @subject.link(@mocks.scope, @mocks.element, @mocks.attrs, @mocks.ctrls)
-#                waitsFor =>
-#                    @childWindow?
-#                , 3000
-#                runs ->
-                expect(@childWindow).toBeDefined()
-                expect(@childWindow.opts).toBeDefined()
+    it 'link creates window options and a childWindow', ->
 
-        describe "with marker", ->
+        @subject.link(@windowScope, @mocks.element, @mocks.attrs, @mocks.ctrls)
+        crap = null
+        @prom.then ->
+            crap = "set"
+        #holy crap $rootScope.$apply() must come after all promises!!!!!
+        @$rootScope.$apply() #force $q to resolve
+        expect(crap).toBe 'set'
+        expect(@childWindow).toBeDefined()
+        expect(@childWindow.opts).toBeDefined()
+
+    it 'slaps control functions when a control is available', ->
+      @subject.link(@mocks.scope, @mocks.element, @mocks.attrs, @mocks.ctrls)
+      @$rootScope.$apply() #force $q to resolve
+      expect(@mocks.scope.control.getChildWindows).toBeDefined()
+      expect(@mocks.scope.control.getGWindows).toBeDefined()
+
+    it 'control functions work', ->
+      @subject.link(@mocks.scope, @mocks.element, @mocks.attrs, @mocks.ctrls)
+      @$rootScope.$apply() #force $q to resolve
+      expect(@mocks.scope.control.getChildWindows().length).toBe(1)
+      expect(@mocks.scope.control.getChildWindows()[0]).toEqual(@childWindow)
+      expect(@mocks.scope.control.getGWindows()[0]).toEqual(@childWindow.gWin)

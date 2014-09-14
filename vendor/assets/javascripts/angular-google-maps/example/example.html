@@ -20,7 +20,7 @@
 
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
           type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,600,300,700'
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,600,300,700'
           rel='stylesheet' type='text/css'>
     <link href="assets/stylesheets/example.css" rel="stylesheet" type="text/css">
 </head>
@@ -39,7 +39,7 @@
     <button class="btn btn-success" ng-click="getMapInstance()">Get Map Instance</button>
 </div>
 <div class="row-fluid">
-    <div class="google-map span7"
+    <div google-map="exp" class="span7"
          center="map.center"
          zoom="map.zoom"
          draggable="true"
@@ -51,6 +51,8 @@
          control="map.control"
         >
 
+        <map-control template="control.tpl.html" position="top-right" index="1" controller="controlController"></map-control>
+
         <layer type="TrafficLayer" show="map.showTraffic"></layer>
         <layer type="BicyclingLayer" show="map.showBicycling"></layer>
         <layer namespace="weather" type="WeatherLayer" show="map.showWeather"></layer>
@@ -59,11 +61,14 @@
         <!--WINDOWS without markers-->
         <!--NOTICE THEY MUST BE PRIOR TO ANY MARKERS OR THEY WILL ATTACH THEMSELVES walking up the dom tree-->
         <window show="map.infoWindow.show" coords="map.infoWindow.coords" isIconVisibleOnClick="false" options="map.infoWindow.options"  ng-cloak>
-			<div ng-controller='InfoController'>
-			    I should not be attached to a
-            	marker.
-                <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>
-	            <a class="btn" ng-click="clickedButtonInWindow()">CLICK ME</a>
+            <div>
+                <p>This is an info window at {{ map.infoWindow.coords.latitude | number:4 }}, {{ map.infoWindow.coords.longitude | number:4 }}!</p>
+                <div ng-controller='InfoController'>
+                    I should not be attached to a
+                    marker.
+
+                    <a class="btn" ng-click="clickedButtonInWindow()">CLICK ME</a>
+                </div>
             </div>
         </window>
 
@@ -78,15 +83,14 @@
                 templateParameter="map.templatedInfoWindow.templateParameter" ng-cloak>
         </window>
 
-        <marker coords="searchLocationMarker.coords" options="searchLocationMarker.options" events="searchLocationMarker.events" >
+        <marker coords="searchLocationMarker.coords" options="searchLocationMarker.options" events="searchLocationMarker.events" idKey="searchLocationMarker.id">
         </marker>
 
         <markers models="map.randomMarkers" coords="'self'" icon="'icon'" click="'onClicked'"
                     doCluster="map.doClusterRandomMarkers" clusterOptions="map.clusterOptions">
         </markers>
 
-        <markers models="map.markers2" coords="'self'" icon="'icon'" click="'onClicked'"
-                    labelContent="'title'" labelAnchor="22 0" labelClass="marker-labels">
+        <markers models="map.markers2" coords="'self'" icon="'icon'" click="'onClicked'" options="'options'" islabel="true" events="map.markers2Events">
             <windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
                 <div>
                     I should not be attached to a
@@ -126,9 +130,9 @@
             </windows>
         </markers>
 
-        <!-- predefined markers -->
-        <!-- rendering via ng-repear, HIGH OVERHEAD via DOM Manipulation -->
-        <marker ng-repeat="m in map.markers" coords="m" icon="m.icon" click="onMarkerClicked(m)">
+        <!--<!-- predefined markers -->-->
+        <!--<!-- rendering via ng-repear, HIGH OVERHEAD via DOM Manipulation -->-->
+        <marker ng-repeat="m in map.markers" coords="m" icon="m.icon" click="onMarkerClicked(m)" idKey="m.id" options="m.options">
             <marker-label content="m.title" anchor="22 0" class="marker-labels"/>
             <window ng-cloak  coords="map.infoWindowWithCustomClass.coords" isIconVisibleOnClick="false" options="map.infoWindowWithCustomClass.options">
                     <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>
@@ -137,14 +141,15 @@
         </marker>
 
          <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
-        <div ng-init="opts = {animation:1}">
-            <marker coords="map.clickedMarker" options="opts">
-                <!--<marker-label content="map.clickedMarker.title" anchor="24 40" class="marker-labels"/>-->
+        <!--<!-- DISABLED ANIMATION on MarkerLABEL due to Google SDK V3 bug, see MarkerLabelChildModel.setOption-->-->
+        <!--<div ng-init="opts = {animation:1}">-->
+            <marker coords="map.clickedMarker"  idKey="map.clickedMarker.id">
+                <marker-label content="map.clickedMarker.title" anchor="24 80" class="marker-labels"/>
                 <window isIconVisibleOnClick="true" options="map.infoWindowWithCustomClass.options">This is my clicked marker!
                     <p class="muted">My marker will reappear when you close me.</p>
                 </window>
             </marker>
-        </div>
+        <!--</div>-->
 
 		<!-- polyline example -->
         <polyline ng-repeat="p in map.polylines" path="p.path" stroke="p.stroke" visible='p.visible'
@@ -182,7 +187,6 @@
                 <td>
                     <div>Do Cluster?: <input type="checkbox" ng-model="map.doClusterRandomMarkers"></div>
                     <div>Cluster Options: <input type="text" ng-model='map.clusterOptionsText'>
-
                         <div>Use Ugly Cluster Image?: <input type="checkbox" ng-model="map.doUgly"></div>
                     </div>
                     <div ng-init="numOfMarkers = 1000">
@@ -433,15 +437,14 @@
 </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization&sensor=false&language=en&v=3.14"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="//maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization&sensor=false&language=en&v=3.16"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js" type="text/javascript"></script>
 <script src="../dist/angular-google-maps.js"></script>
 <script src="assets/scripts/mocks/heat-layer.js"></script>
 <script src="assets/scripts/controllers/example.js"></script>
 <script src="assets/scripts/controllers/templates/info.js"></script>
-<script src="http://localhost:35729/livereload.js"></script>
 </body>
 
 </html>
