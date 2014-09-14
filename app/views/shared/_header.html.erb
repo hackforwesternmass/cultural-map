@@ -64,6 +64,10 @@
       <ul class="right">
         <li><a href="<%= root_path %>">Map Attractions</a></li>
         <li><a href="/#/listView">List Attractions</a></li>
+        <% if current_user %>
+            <li><%= link_to "Admin", "/api/landmarks" %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <% end %>
       </ul>
     </section>
   </nav>
